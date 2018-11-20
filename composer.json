@@ -1,0 +1,22 @@
+{
+    "name": "lnch/laravel-admin",
+    "description": "An admin panel framework for Laravel 5",
+    "authors": [
+        {
+            "name": "Tom Lynch",
+            "email": "tom@lnch.co.uk"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Lnch\\LaravelAdmin\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Lnch\\LaravelAdmin\\LaravelAdminServiceProvider"
+            ]
+        }
+    }
+}
