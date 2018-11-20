@@ -23,6 +23,15 @@ class LaravelAdminServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        // Set up the config if not published
+        if ($this->app['config']->get('laravel-admin') === null) {
+            $this->app['config']->set('laravel-admin', require __DIR__.'/../config/laravel-admin.php');
+        }
+
+        // Merge config
+        $this->mergeConfigFrom(
+            __DIR__.'/../config/laravel-admin.php',
+            'laravel-admin'
+        );
     }
 }
