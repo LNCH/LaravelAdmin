@@ -2,7 +2,7 @@
 
 namespace Lnch\LaravelAdmin;
 
-use Illuminate\Support\Facades\View;
+use Lnch\LaravelAdmin\Commands\AssetLinkCommand;
 use Illuminate\Support\ServiceProvider;
 
 class LaravelAdminServiceProvider extends ServiceProvider
@@ -16,6 +16,7 @@ class LaravelAdminServiceProvider extends ServiceProvider
     {
         $this->loadViewsFrom(__DIR__.'/Views', 'laravel-admin');
 
+        // Add in base classes and IDs to the body tag, using view composers
         view()->composer("laravel-admin::components.base", function ($view) {
             $bodyId = array_key_exists("body_id", view()->getSections())
                 ? view()->getSections()["body_id"]
@@ -29,6 +30,21 @@ class LaravelAdminServiceProvider extends ServiceProvider
             $view->with("laravelAdminBodyClass", implode(" ", $bodyClasses))
                 ->with("laravelAdminBodyID", $bodyId);
         });
+
+        // Register commands
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                AssetLinkCommand::class,
+            ]);
+        }
+
+        $this->publishes([
+            __DIR__.'/../public' => public_path('vendor/lnch/laravel-admin'),
+        ], 'public');
+
+        $this->publishes([
+            __DIR__.'/views' => resource_path('vendor/lnch/laravel-admin'),
+        ], 'views');
     }
 
     /**
