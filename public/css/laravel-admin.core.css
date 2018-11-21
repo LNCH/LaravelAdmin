@@ -1,0 +1,179 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: whitesmoke;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+article,
+ul,
+ol,
+dl,
+img {
+  line-height: 1.6rem;
+  margin-bottom: 27.2px;
+  margin-bottom: 1.6rem;
+  margin-top: 0px;
+  margin-top: 0rem;
+}
+
+html,
+body {
+  font-family: Georgia, serif;
+  font-size: 106.25%;
+  color: #333;
+}
+
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 100%;
+  }
+}
+
+h1 {
+  font-family: Arial, sans-serif;
+  font-weight: 500;
+  font-size: 2.25rem;
+  line-height: 2.4rem;
+  margin-top: 81.6px;
+  margin-top: 4.8rem;
+  margin-bottom: 27.2px;
+  margin-bottom: 1.6rem;
+}
+
+h2 {
+  font-family: Arial, sans-serif;
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 2.4rem;
+  margin-top: 54.4px;
+  margin-top: 3.2rem;
+  margin-bottom: 27.2px;
+  margin-bottom: 1.6rem;
+}
+
+h3 {
+  font-family: Arial, sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 2.4rem;
+  margin-top: 27.2px;
+  margin-top: 1.6rem;
+  margin-bottom: 0px;
+  margin-bottom: 0rem;
+}
+
+h4 {
+  font-family: Arial, sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.6rem;
+  margin-top: 27.2px;
+  margin-top: 1.6rem;
+  margin-bottom: 0px;
+  margin-bottom: 0rem;
+}
+
+h5 {
+  font-family: Arial, sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.6rem;
+  margin-top: 27.2px;
+  margin-top: 1.6rem;
+  margin-bottom: 0px;
+  margin-bottom: 0rem;
+}
+
+h6 {
+  font-family: Arial, sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.6rem;
+  margin-top: 27.2px;
+  margin-top: 1.6rem;
+  margin-bottom: 0px;
+  margin-bottom: 0rem;
+}
+
+p {
+  line-height: 1.6rem;
+  margin-bottom: 27.2px;
+  margin-bottom: 1.6rem;
+  margin-top: 0px;
+  margin-top: 0rem;
+  max-width: 36rem;
+}
+
+blockquote p {
+  text-indent: -0.5em;
+}
+
+ul,
+ol {
+  list-style-position: outside;
+}
+
+p {
+  max-width: none;
+}
+
+._laravel-admin.page-wrapper {
+  width: 100%;
+  height: 100vh;
+}
+
+._laravel-admin .main-header {
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 3rem;
+  width: 100%;
+  background: white;
+  z-index: 3000;
+}
+
+._laravel-admin .main-header .brand-panel {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 13rem;
+          flex: 0 0 13rem;
+  background: darkgray;
+  z-index: 4000;
+}
+
+._laravel-admin .main-header .header-content {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+
+._laravel-admin .main-sidebar {
+  position: fixed;
+  top: 3rem;
+  left: 0;
+  height: calc(100vh - 3rem);
+  width: 13rem;
+  background: grey;
+  z-index: 2000;
+}
+
+._laravel-admin .main-content {
+  padding-top: 3rem;
+  padding-left: 13rem;
+  z-index: 1000;
+}
+
+._laravel-admin .main-content .inner-content {
+  padding: 27.2px 27.2px;
+  padding: 1.6rem 1.6rem;
+}
+
