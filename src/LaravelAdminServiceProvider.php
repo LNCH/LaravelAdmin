@@ -18,9 +18,10 @@ class LaravelAdminServiceProvider extends ServiceProvider
 
         // Add in base classes and IDs to the body tag, using view composers
         view()->composer("laravel-admin::components.base", function ($view) {
+            $defaultBodyId = "p__".str_replace("/", "_", substr(request()->getRequestUri(), 1));
             $bodyId = array_key_exists("body_id", view()->getSections())
                 ? view()->getSections()["body_id"]
-                : config("laravel-admin.default_body_id", "");
+                : $defaultBodyId;
 
             $bodyClasses = config("laravel-admin.default_body_classes");
             if (array_key_exists("body_class", view()->getSections())) {
