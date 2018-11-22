@@ -1,18 +1,30 @@
 @extends("laravel-admin::components.base")
 
 @section("base_content")
-    <div class="page-wrapper _laravel-admin">
+    <div id="laravel-admin_app" class="page-wrapper _laravel-admin">
         <header class="main-header">
             <div class="brand-panel">
                 Brand Panel
             </div> <!-- End .brand-panel -->
+
             <div class="header-content">
-                Header
+                <div class="search-form">
+                    Search
+                </div> <!-- End .search-form -->
+
+                <div class="notifications-area"></div>
+
+                <account-dropdown
+                    :label="'Tom'"
+                    :menu-links="{{ json_encode(config("laravel-admin.account_dropdown_menu")) }}"
+                />
             </div> <!-- End .header-content -->
         </header> <!-- End .main-header -->
+
         <aside class="main-sidebar">
             Sidebar
         </aside> <!-- End .main-sidebar -->
+
         <main class="main-content">
             <div class="inner-content">
 

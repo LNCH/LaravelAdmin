@@ -116,25 +116,27 @@ ol {
 }
 
 :root {
+  --body-font: Georgia, serif;
+  --heading-font: Arial, sans-serif;
+  --body-background: #eff4fa;
+  --body-color: #53575d;
   --header-height: 3rem;
   --header-background: white;
-  --header-box-shadow: 2px 0 8px 1px rgb(218, 224, 232);
-  --brand-panel-background: grey;
+  --header-box-shadow: 2px 0 8px 1px #e2e7ef;
+  --brand-panel-background: white;
+  --brand-panel-right-border: 1px solid #e2e7ef;
   --sidebar-width: 13rem;
   --sidebar-background: white;
-  --sidebar-box-shadow: 0 2px 8px 1px rgb(218, 224, 232);
+  --sidebar-top-border: 1px solid #e2e7ef;
+  --main-content-box-shadow: inset 2px 0 12px 3px #e2e7ef;
 }
 
 html,
 body {
   margin: 0;
   padding: 0;
-  background: #eff4fa;
-  color: #53575d;
-}
-
-p {
-  max-width: none;
+  background: var(--body-background);
+  color: var(--body-color);
 }
 
 ._laravel-admin.page-wrapper {
@@ -142,15 +144,19 @@ p {
   height: 100vh;
 }
 
+._laravel-admin p {
+  max-width: none;
+}
+
 ._laravel-admin .main-header {
   position: fixed;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: var(--header-height);
   width: 100%;
-  background: var(--header-background);
   z-index: 2000;
+  height: var(--header-height);
+  background: var(--header-background);
   -webkit-box-shadow: var(--header-box-shadow);
           box-shadow: var(--header-box-shadow);
 }
@@ -167,18 +173,29 @@ p {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+._laravel-admin .main-header .header-content .notifications-area {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
 }
 
 ._laravel-admin .main-sidebar {
   position: fixed;
   top: var(--header-height);
   left: 0;
+  z-index: 3000;
   height: calc(100vh - var(--header-height));
   width: var(--sidebar-width);
   background: var(--sidebar-background);
-  z-index: 3000;
-  -webkit-box-shadow: var(--sidebar-box-shadow);
-          box-shadow: var(--sidebar-box-shadow);
+  border-top: var(--sidebar-top-border);
 }
 
 ._laravel-admin .main-content {
@@ -190,5 +207,17 @@ p {
 ._laravel-admin .main-content .inner-content {
   padding: 27.2px 27.2px;
   padding: 1.6rem 1.6rem;
+  -webkit-box-shadow: var(--main-content-box-shadow);
+          box-shadow: var(--main-content-box-shadow);
+}
+
+.brand-panel {
+  line-height: var(--header-height);
+  text-align: center;
+  text-transform: uppercase;
+  font-family: var(--heading-font);
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
 }
 

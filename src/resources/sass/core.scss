@@ -6,26 +6,31 @@ $base-font-size: 106.25;
 @import "typography";
 
 :root {
+    --body-font: #{$font-family};
+    --heading-font: #{$heading-font-family};
+
+    --body-background: #eff4fa;
+    --body-color: #53575d;
+
     --header-height: 3rem;
     --header-background: white;
-    --header-box-shadow: 2px 0 8px 1px rgb(218, 224, 232);
+    --header-box-shadow: 2px 0 8px 1px #e2e7ef;
 
-    --brand-panel-background: grey;
+    --brand-panel-background: white;
+    --brand-panel-right-border: 1px solid #e2e7ef;
 
     --sidebar-width: 13rem;
     --sidebar-background: white;
-    --sidebar-box-shadow: 0 2px 8px 1px rgb(218, 224, 232);
+    --sidebar-top-border: 1px solid #e2e7ef;
+
+    --main-content-box-shadow: inset 2px 0 12px 3px #e2e7ef;
 }
 
 html, body {
     margin: 0;
     padding: 0;
-    background: #eff4fa;
-    color: #53575d;
-}
-
-p {
-    max-width: none;
+    background: var(--body-background);
+    color: var(--body-color);
 }
 
 ._laravel-admin {
@@ -34,13 +39,15 @@ p {
         height: 100vh;
     }
 
+    p { max-width: none; }
+
     .main-header {
         position: fixed;
         display: flex;
-        height: var(--header-height);
         width: 100%;
-        background: var(--header-background);
         z-index: 2000;
+        height: var(--header-height);
+        background: var(--header-background);
         box-shadow: var(--header-box-shadow);
 
         .brand-panel {
@@ -51,6 +58,12 @@ p {
 
         .header-content {
             flex: 1 1 auto;
+            display: flex;
+            align-items: center;
+
+            .notifications-area {
+                flex: 1 1 auto;
+            }
         }
     }
 
@@ -58,11 +71,11 @@ p {
         position: fixed;
         top: var(--header-height);
         left: 0;
+        z-index: 3000;
         height: calc(100vh - var(--header-height));
         width: var(--sidebar-width);
         background: var(--sidebar-background);
-        z-index: 3000;
-        box-shadow: var(--sidebar-box-shadow);
+        border-top: var(--sidebar-top-border);
     }
 
     .main-content {
@@ -72,6 +85,17 @@ p {
 
         .inner-content {
             @include padding(1);
+            box-shadow: var(--main-content-box-shadow);
         }
     }
+}
+
+.brand-panel {
+    line-height: var(--header-height);
+    text-align: center;
+    text-transform: uppercase;
+    font-family: var(--heading-font);
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
 }
