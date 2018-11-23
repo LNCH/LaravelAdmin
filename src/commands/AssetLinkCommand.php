@@ -37,9 +37,9 @@ class AssetLinkCommand extends Command
      */
     public function handle()
     {
-        $destination = base_path("vendor\\lnch\\laravel-admin\\public");
-        $targetDir = public_path('vendor\\lnch');
-        $target = $targetDir . "\\laravel-admin";
+        $destination = base_path("vendor/lnch/laravel-admin/public");
+        $targetDir = public_path('vendor/lnch');
+        $target = $targetDir . "/laravel-admin";
 
         if (file_exists(public_path('vendor/lnch/laravel-admin'))) {
             return $this->error('The "public/vendor/lnch/laravel-admin" directory already exists.');
