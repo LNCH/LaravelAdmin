@@ -1,4 +1,4 @@
-h1,
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed);h1,
 h2,
 h3,
 h4,
@@ -20,7 +20,7 @@ img {
 
 html,
 body {
-  font-family: Georgia, serif;
+  font-family: "Roboto Condensed", sans-serif;
   font-size: 106.25%;
   color: #333;
 }
@@ -32,7 +32,7 @@ body {
 }
 
 h1 {
-  font-family: Arial, sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
   font-weight: 500;
   font-size: 2.25rem;
   line-height: 2.4rem;
@@ -43,7 +43,7 @@ h1 {
 }
 
 h2 {
-  font-family: Arial, sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
   font-weight: 500;
   font-size: 1.5rem;
   line-height: 2.4rem;
@@ -54,7 +54,7 @@ h2 {
 }
 
 h3 {
-  font-family: Arial, sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
   font-weight: 500;
   font-size: 1rem;
   line-height: 2.4rem;
@@ -65,7 +65,7 @@ h3 {
 }
 
 h4 {
-  font-family: Arial, sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
   font-weight: 500;
   font-size: 1rem;
   line-height: 1.6rem;
@@ -76,7 +76,7 @@ h4 {
 }
 
 h5 {
-  font-family: Arial, sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
   font-weight: 500;
   font-size: 1rem;
   line-height: 1.6rem;
@@ -87,7 +87,7 @@ h5 {
 }
 
 h6 {
-  font-family: Arial, sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
   font-weight: 500;
   font-size: 1rem;
   line-height: 1.6rem;
@@ -116,19 +116,26 @@ ol {
 }
 
 :root {
-  --body-font: Georgia, serif;
-  --heading-font: Arial, sans-serif;
+  --body-font: Roboto Condensed, sans-serif;
+  --heading-font: Roboto Condensed, sans-serif;
   --body-background: #eff4fa;
   --body-color: #53575d;
   --header-height: 3rem;
   --header-background: white;
   --header-box-shadow: 2px 0 8px 1px #e2e7ef;
+  --header-mobile-box-shadow: 2px 0 12px 3px #e2e7ef;
   --brand-panel-background: white;
   --brand-panel-right-border: 1px solid #e2e7ef;
+  --menu-toggle-right-border: var(--brand-panel-right-border);
   --sidebar-width: 13rem;
   --sidebar-background: white;
   --sidebar-top-border: 1px solid #e2e7ef;
   --main-content-box-shadow: inset 2px 0 12px 3px #e2e7ef;
+  --main-content-box-shadow: inset 2px 0 12px 3px #e2e7ef;
+  --main-content-x-padding: 1.6rem;
+  --main-content-y-padding: 1.6rem;
+  --main-content-mobile-x-padding: 1.6rem;
+  --main-content-mobile-y-padding: 0.8rem;
 }
 
 html,
@@ -153,6 +160,9 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%;
   z-index: 2000;
   height: var(--header-height);
@@ -167,6 +177,52 @@ body {
           flex: 0 0 var(--sidebar-width);
   background: var(--brand-panel-background);
   z-index: 4000;
+}
+
+._laravel-admin .main-header button.menu-toggle,
+._laravel-admin .main-header button.show-search {
+  display: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  background: transparent;
+  width: var(--header-height);
+}
+
+._laravel-admin .main-header button.menu-toggle i.fa.close-menu,
+._laravel-admin .main-header button.show-search i.fa.close-menu {
+  display: none;
+}
+
+._laravel-admin .main-header button.menu-toggle.menu-open i.fa.open-menu,
+._laravel-admin .main-header button.show-search.menu-open i.fa.open-menu {
+  display: none;
+}
+
+._laravel-admin .main-header button.menu-toggle.menu-open i.fa.close-menu,
+._laravel-admin .main-header button.show-search.menu-open i.fa.close-menu {
+  display: inline;
+}
+
+._laravel-admin .main-header button.menu-toggle:focus,
+._laravel-admin .main-header button.show-search:focus {
+  outline: none;
+}
+
+._laravel-admin .main-header button.menu-toggle:hover,
+._laravel-admin .main-header button.menu-toggle.menu-open,
+._laravel-admin .main-header button.show-search:hover,
+._laravel-admin .main-header button.show-search.menu-open {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+._laravel-admin .main-header button.menu-toggle {
+  border-right: var(--menu-toggle-right-border);
+}
+
+._laravel-admin .main-header button.show-search {
+  border-left: var(--menu-toggle-right-border);
 }
 
 ._laravel-admin .main-header .header-content {
@@ -219,5 +275,91 @@ body {
   font-weight: 600;
   white-space: nowrap;
   overflow: hidden;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                              supported by Chrome and Opera */
+}
+
+@media screen and (max-width: 768px) {
+  ._laravel-admin .main-header {
+    z-index: 4000;
+    -webkit-box-shadow: var(--header-mobile-box-shadow);
+            box-shadow: var(--header-mobile-box-shadow);
+  }
+
+  ._laravel-admin .main-header button.menu-toggle,
+  ._laravel-admin .main-header button.show-search {
+    display: inline;
+    -ms-flex-item-align: stretch;
+        align-self: stretch;
+  }
+
+  ._laravel-admin .main-header .la_header-search-form {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    background: white;
+    width: 100%;
+    padding: 1rem 2rem;
+    border-top: 1px solid #e2e7ef;
+    border-bottom: 1px solid #e2e7ef;
+    -webkit-transition: 0.3s ease all;
+    transition: 0.3s ease all;
+  }
+
+  ._laravel-admin .main-header .la_header-search-form .search-input {
+    width: 100%;
+  }
+
+  ._laravel-admin .main-header .la_header-search-form.open {
+    right: 0;
+  }
+
+  ._laravel-admin .main-header .brand-panel {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+  }
+
+  ._laravel-admin .main-header .header-content {
+    display: none;
+  }
+
+  ._laravel-admin .main-sidebar {
+    width: 85%;
+    left: -100%;
+    -webkit-box-shadow: 4px 0px 10px 0px rgba(0, 0, 0, 0.2);
+            box-shadow: 4px 0px 10px 0px rgba(0, 0, 0, 0.2);
+    -webkit-transition: 0.3s ease all;
+    transition: 0.3s ease all;
+  }
+
+  ._laravel-admin .main-sidebar.open {
+    left: 0;
+  }
+
+  ._laravel-admin .main-sidebar::after {
+    content: '';
+  }
+
+  ._laravel-admin .main-content {
+    padding-left: 0;
+  }
+
+  ._laravel-admin .main-content .inner-content {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    padding: 20.4px 13.6px;
+    padding: 1.2rem 0.8rem;
+  }
 }
 

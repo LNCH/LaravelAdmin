@@ -18,7 +18,7 @@
         @stack("body_start")
         @yield("base_content")
         <script src="{{ asset("vendor/lnch/laravel-admin/js/laravel-admin.core.js") }}"></script>
-        {{--<script>--}}
+        <script>
             {{--$(window).on("click", function (event) {--}}
                 {{--// Close any active menus when clicking outside the menu--}}
                 {{--// TODO: Check if any other menus are open and close those--}}
@@ -26,7 +26,12 @@
                     {{--$(".la_close-on-clickaway .is-active").removeClass("is-active");--}}
                 {{--}--}}
             {{--});--}}
-        {{--</script>--}}
+            $(document).on('keydown', function(event) {
+                if(event.ctrlKey && event.altKey && event.keyCode == 70) {
+                    $("#header_search").focus();
+                }
+            });
+        </script>
         @stack("body_scripts")
         @stack("body_end")
     </body>

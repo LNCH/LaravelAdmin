@@ -3,19 +3,28 @@
 @section("base_content")
     <div id="laravel-admin_app" class="page-wrapper _laravel-admin">
         <header class="main-header">
+            <button class="menu-toggle">
+                <i class="fa fa-bars open-menu"></i>
+                <i class="fa fa-times close-menu"></i>
+            </button>
+
             <div class="brand-panel">
                 Brand Panel
             </div> <!-- End .brand-panel -->
 
+            <button class="show-search">
+                <i class="fa fa-search"></i>
+            </button>
+
+            <search-form></search-form>
+
             <div class="header-content">
-                <div class="search-form">
-                    Search
-                </div> <!-- End .search-form -->
 
                 <div class="notifications-area"></div>
 
                 <account-dropdown
                     :label="'Tom'"
+                    :avatar-image="'https://randomuser.me/api/portraits/women/91.jpg'"
                     :menu-links="{{ json_encode(config("laravel-admin.account_dropdown_menu")) }}"
                 />
             </div> <!-- End .header-content -->

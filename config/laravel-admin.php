@@ -12,10 +12,6 @@ return [
         [
             'url' => '/user/preferences',
             'label' => 'Preferences',
-        ],
-        [
-            'url' => '/logout',
-            'label' => 'Logout',
         ]
     ]
 ];
