@@ -14,7 +14,7 @@ class LaravelAdminServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadViewsFrom(__DIR__.'/Views', 'laravel-admin');
+        $this->loadViewsFrom(__DIR__.'/views', 'laravel-admin');
 
         // Add in base classes and IDs to the body tag, using view composers
         view()->composer("laravel-admin::components.base", function ($view) {
