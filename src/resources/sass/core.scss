@@ -296,7 +296,6 @@ html, body {
     ._laravel-admin .main-header {
         z-index: 4000;
         box-shadow: var(--header-mobile-box-shadow);
-        border-top: 1px solid var(--layout-border-color);
 
         button.menu-toggle, button.show-search {
             display: inline;

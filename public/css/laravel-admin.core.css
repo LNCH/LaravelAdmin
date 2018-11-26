@@ -415,7 +415,6 @@ body {
     z-index: 4000;
     -webkit-box-shadow: var(--header-mobile-box-shadow);
             box-shadow: var(--header-mobile-box-shadow);
-    border-top: 1px solid var(--layout-border-color);
   }
 
   ._laravel-admin .main-header button.menu-toggle,
