@@ -58,7 +58,6 @@ $(function() {
     });
 
     var mainNavigation = $("._laravel-admin .main-navigation ul");
-
     mainNavigation.on("click", "li.has-children", function (event) {
         if ($(event.target).closest("li").hasClass("has-children")) {
             event.preventDefault();
