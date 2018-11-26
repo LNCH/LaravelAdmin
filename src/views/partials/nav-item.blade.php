@@ -1,3 +1,4 @@
+
 <li @if(isset($item['children']) && count($item['children'])) class="has-children" @endif>
     <a href="{{ url($item['url']) }}">
         @if(isset($item['icon']) && !isset($subNav))

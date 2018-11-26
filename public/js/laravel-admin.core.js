@@ -172,9 +172,11 @@ $(function () {
     var mainNavigation = $("._laravel-admin .main-navigation ul");
 
     mainNavigation.on("click", "li.has-children", function (event) {
-        event.stopPropagation();
-        event.preventDefault();
-        $(this).toggleClass("active");
+        if ($(event.target).closest("li").hasClass("has-children")) {
+            event.preventDefault();
+            event.stopPropagation();
+            $(event.target).closest("li").toggleClass("active");
+        }
     });
 });
 
