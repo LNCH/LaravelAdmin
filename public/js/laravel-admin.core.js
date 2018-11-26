@@ -167,8 +167,6 @@ $(function () {
         }
     });
 
-    // Clear menu and search classes if width > breakpoint
-
     var mainNavigation = $("._laravel-admin .main-navigation ul");
 
     mainNavigation.on("click", "li.has-children", function (event) {
