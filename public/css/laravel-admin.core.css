@@ -118,24 +118,30 @@ ol {
 :root {
   --body-font: Roboto Condensed, sans-serif;
   --heading-font: Roboto Condensed, sans-serif;
+  --layout-border-color: #e2e7ef;
   --body-background: #eff4fa;
   --body-color: #53575d;
   --header-height: 3rem;
   --header-background: white;
-  --header-box-shadow: 2px 0 8px 1px #e2e7ef;
-  --header-mobile-box-shadow: 2px 0 12px 3px #e2e7ef;
+  --header-box-shadow: 2px 0 8px 1px var(--layout-border-color);
+  --header-mobile-box-shadow: 2px 0 12px 3px var(--layout-border-color);
   --brand-panel-background: white;
-  --brand-panel-right-border: 1px solid #e2e7ef;
+  --brand-panel-right-border: 1px solid var(--layout-border-color);
   --menu-toggle-right-border: var(--brand-panel-right-border);
   --sidebar-width: 13rem;
   --sidebar-background: white;
-  --sidebar-top-border: 1px solid #e2e7ef;
-  --main-content-box-shadow: inset 2px 0 12px 3px #e2e7ef;
-  --main-content-box-shadow: inset 2px 0 12px 3px #e2e7ef;
+  --sidebar-top-border: 1px solid var(--layout-border-color);
+  --main-content-box-shadow: inset 2px 0 12px 3px var(--layout-border-color);
+  --main-content-box-shadow: inset 2px 0 12px 3px var(--layout-border-color);
   --main-content-x-padding: 1.6rem;
   --main-content-y-padding: 1.6rem;
   --main-content-mobile-x-padding: 1.6rem;
   --main-content-mobile-y-padding: 0.8rem;
+  --main-nav-text-color: #58687d;
+  --main-nav-hover-bg: #f5f9fc;
+  --main-nav-left-padding: 1.25rem;
+  --main-nav-right-padding: 1rem;
+  --main-nav-y-padding: 0.4rem;
 }
 
 html,
@@ -144,6 +150,11 @@ body {
   padding: 0;
   background: var(--body-background);
   color: var(--body-color);
+}
+
+.transitions-off {
+  -webkit-transition: none !important;
+  transition: none !important;
 }
 
 ._laravel-admin.page-wrapper {
@@ -188,6 +199,7 @@ body {
   border: none;
   background: transparent;
   width: var(--header-height);
+  color: #333;
 }
 
 ._laravel-admin .main-header button.menu-toggle i.fa.close-menu,
@@ -195,13 +207,13 @@ body {
   display: none;
 }
 
-._laravel-admin .main-header button.menu-toggle.menu-open i.fa.open-menu,
-._laravel-admin .main-header button.show-search.menu-open i.fa.open-menu {
+._laravel-admin .main-header button.menu-toggle.is-active i.fa.open-menu,
+._laravel-admin .main-header button.show-search.is-active i.fa.open-menu {
   display: none;
 }
 
-._laravel-admin .main-header button.menu-toggle.menu-open i.fa.close-menu,
-._laravel-admin .main-header button.show-search.menu-open i.fa.close-menu {
+._laravel-admin .main-header button.menu-toggle.is-active i.fa.close-menu,
+._laravel-admin .main-header button.show-search.is-active i.fa.close-menu {
   display: inline;
 }
 
@@ -211,9 +223,9 @@ body {
 }
 
 ._laravel-admin .main-header button.menu-toggle:hover,
-._laravel-admin .main-header button.menu-toggle.menu-open,
+._laravel-admin .main-header button.menu-toggle.is-active,
 ._laravel-admin .main-header button.show-search:hover,
-._laravel-admin .main-header button.show-search.menu-open {
+._laravel-admin .main-header button.show-search.is-active {
   background: rgba(0, 0, 0, 0.1);
 }
 
@@ -265,6 +277,7 @@ body {
   padding: 1.6rem 1.6rem;
   -webkit-box-shadow: var(--main-content-box-shadow);
           box-shadow: var(--main-content-box-shadow);
+  min-height: calc(100vh - var(--header-height));
 }
 
 .brand-panel {
@@ -287,6 +300,110 @@ body {
   user-select: none;
   /* Non-prefixed version, currently
                               supported by Chrome and Opera */
+}
+
+._laravel-admin .main-navigation ul {
+  margin: 0;
+  padding: 0;
+}
+
+._laravel-admin .main-navigation ul li a {
+  display: block;
+  position: relative;
+  font-size: 0.9rem;
+  padding: var(--main-nav-y-padding) var(--main-nav-right-padding) var(--main-nav-y-padding) var(--main-nav-left-padding);
+  border-bottom: 1px solid var(--layout-border-color, whitesmoke);
+  color: var(--main-nav-text-color);
+  -webkit-transition: 0.2s ease all;
+  transition: 0.2s ease all;
+}
+
+._laravel-admin .main-navigation ul li a .menu-icon {
+  font-size: 0.8em;
+  margin-right: 0.5rem;
+}
+
+._laravel-admin .main-navigation ul li a .children-indicator {
+  position: absolute;
+  display: inline;
+  top: 50%;
+  right: var(--main-nav-right-padding);
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  font-size: 0.75em;
+  color: #bbbec5;
+  -webkit-transition: 0.2s ease all;
+  transition: 0.2s ease all;
+}
+
+._laravel-admin .main-navigation ul li a .counter {
+  position: absolute;
+  display: block;
+  top: 50%;
+  right: var(--main-nav-right-padding);
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  background: #eff4fa;
+  color: #97a7b6;
+  min-width: 1.3rem;
+  height: 1.3rem;
+  text-align: center;
+  font-size: 0.7rem;
+  line-height: 1.4rem;
+  border-radius: 0.2rem;
+  -webkit-transition: 0.2s ease all;
+  transition: 0.2s ease all;
+}
+
+._laravel-admin .main-navigation ul li a .children-indicator + .counter {
+  right: calc(var(--main-nav-right-padding) * 2 + 0.5rem);
+}
+
+._laravel-admin .main-navigation ul li a:hover {
+  text-decoration: none;
+  background: var(--main-nav-hover-bg);
+}
+
+._laravel-admin .main-navigation ul li a:hover .counter {
+  background: white;
+}
+
+._laravel-admin .main-navigation ul li ul {
+  display: none;
+  padding-left: 0.6em;
+  background: var(--main-nav-hover-bg);
+  padding-top: calc(var(--main-nav-y-padding) / 2);
+  padding-bottom: calc(var(--main-nav-y-padding) / 2);
+}
+
+._laravel-admin .main-navigation ul li ul li {
+  list-style-type: none;
+}
+
+._laravel-admin .main-navigation ul li ul li:hover > a {
+  text-decoration: underline;
+}
+
+._laravel-admin .main-navigation ul li ul li a {
+  font-size: 0.8rem;
+  border: none;
+  padding-top: calc(var(--main-nav-y-padding) / 2);
+  padding-bottom: calc(var(--main-nav-y-padding) / 2);
+}
+
+._laravel-admin .main-navigation ul li.active > a > .children-indicator {
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  -webkit-transform: translateY(-50%) rotate(180deg);
+          transform: translateY(-50%) rotate(180deg);
+}
+
+._laravel-admin .main-navigation ul li.active > ul {
+  display: block;
+}
+
+._laravel-admin .main-navigation > ul > li > ul {
+  border-bottom: 1px solid var(--layout-border-color, whitesmoke);
 }
 
 @media screen and (max-width: 768px) {
@@ -335,7 +452,7 @@ body {
   }
 
   ._laravel-admin .main-sidebar {
-    width: 85%;
+    width: calc(100% - var(--header-height));
     left: -100%;
     -webkit-box-shadow: 4px 0px 10px 0px rgba(0, 0, 0, 0.2);
             box-shadow: 4px 0px 10px 0px rgba(0, 0, 0, 0.2);

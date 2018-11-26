@@ -12,7 +12,13 @@ const app = new Vue({
     el: '#laravel-admin_app'
 });
 
-// Menu toggle
+$(document).on('keydown', function(event) {
+    if(event.ctrlKey && event.altKey && event.keyCode == 70) {
+        $("#header_search").focus();
+    }
+});
+
+// Menu toggles
 $(function() {
     var menuToggleButton = $("._laravel-admin button.menu-toggle");
     var searchToggleButton = $("._laravel-admin button.show-search");
@@ -21,6 +27,10 @@ $(function() {
 
     menuToggleButton.on("click", function (event) {
         event.preventDefault();
+
+        searchToggleButton.removeClass("is-active");
+        headerSearch.removeClass("open");
+
         var $this = $(this);
         if ($this.hasClass("is-active")) {
             $this.removeClass("is-active");
@@ -33,6 +43,10 @@ $(function() {
 
     searchToggleButton.on("click", function (event) {
         event.preventDefault();
+
+        menuToggleButton.removeClass("is-active");
+        sidebar.removeClass("open");
+
         var $this = $(this);
         if ($this.hasClass("is-active")) {
             $this.removeClass("is-active");
@@ -44,4 +58,12 @@ $(function() {
     });
 
     // Clear menu and search classes if width > breakpoint
+
+    var mainNavigation = $("._laravel-admin .main-navigation ul");
+
+    mainNavigation.on("click", "li.has-children", function (event) {
+        event.stopPropagation();
+        event.preventDefault();
+        $(this).toggleClass("active");
+    });
 });
