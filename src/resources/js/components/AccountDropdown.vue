@@ -165,7 +165,7 @@
         }
 
         button:hover, button.is-active {
-            background: rgba(0, 0, 0, 0.1);
+            background: var(--main-nav-hover-bg, rgba(0, 0, 0, 0.1));
         }
     }
 
