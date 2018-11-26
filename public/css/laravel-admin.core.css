@@ -416,7 +416,6 @@ body {
     -webkit-box-shadow: var(--header-mobile-box-shadow);
             box-shadow: var(--header-mobile-box-shadow);
     border-top: 1px solid var(--layout-border-color);
-    margin-top: 1px;
   }
 
   ._laravel-admin .main-header button.menu-toggle,
