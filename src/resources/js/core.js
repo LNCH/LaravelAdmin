@@ -12,12 +12,6 @@ const app = new Vue({
     el: '#laravel-admin_app'
 });
 
-$(document).on('keydown', function(event) {
-    if(event.ctrlKey && event.altKey && event.keyCode == 70) {
-        $("#header_search").focus();
-    }
-});
-
 // Menu toggles
 $(function() {
     var menuToggleButton = $("._laravel-admin button.menu-toggle");
@@ -57,12 +51,32 @@ $(function() {
         }
     });
 
-    var mainNavigation = $("._laravel-admin .main-navigation ul");
-    mainNavigation.on("click", "li.has-children", function (event) {
+    // Keyboard shortcut for search
+    $(document).on('keydown', function(event) {
+        if(event.ctrlKey && event.shiftKey && event.keyCode == 70) {
+            $("#header_search").focus();
+        }
+    });
+    $("#header_search").on("keydown", function (event) {
+        if (event.key == "Escape" && $(this).val() == "") {
+            $(this).blur();
+        }
+    });
+
+    // Main nav dropdown functionality
+    var mainNavigation = $("._laravel-admin .main-navigation");
+    mainNavigation.find("ul").on("click", "li.has-children", function (event) {
         if ($(event.target).closest("li").hasClass("has-children")) {
-            event.preventDefault();
-            event.stopPropagation();
+            event.preventDefault(); event.stopPropagation();
             $(event.target).closest("li").toggleClass("active");
         }
     });
+
+    // Clone user menu to the main nav for mobile
+    var accountMenu = $(".la_account-dropdown .la_dropdown-menu ul");
+    if (accountMenu.length) {
+        var menuTitle = "<div class='menu-title mobile-account-menu'>Account</div>";
+        mainNavigation.append(menuTitle);
+        mainNavigation.append(accountMenu.clone().addClass("mobile-account-menu"));
+    }
 });

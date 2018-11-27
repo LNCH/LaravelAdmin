@@ -19,7 +19,6 @@
             <search-form></search-form>
 
             <div class="header-content">
-
                 <div class="notifications-area"></div>
 
                 <account-dropdown
@@ -31,7 +30,9 @@
         </header> <!-- End .main-header -->
 
         <aside class="main-sidebar">
-            @include("laravel-admin::partials.main-navigation")
+            @stack("sidebar_start")
+            @include("laravel-admin::partials.main-navigation", ['title' => 'Menu'])
+            @stack("sidebar_end")
         </aside> <!-- End .main-sidebar -->
 
         <main class="main-content">

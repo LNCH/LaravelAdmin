@@ -1,10 +1,14 @@
 <nav class="main-navigation">
+    @if(isset($title))
+        <div class="menu-title">{{ $title }}</div>
+    @endif
+
     <ul>
     @foreach(config("laravel-admin.main_navigation") as $item)
         @if(isset($item['title']))
-            {{--<li>--}}
-                {{--<a class="menu-title">{{ $item['title'] }}</a>--}}
-            {{--</li>--}}
+            <li class="title">
+                {{ $item['title'] }}
+            </li>
         @else
             @include("laravel-admin::partials.nav-item", ['item' => $item])
         @endif

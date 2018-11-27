@@ -122,12 +122,6 @@ var app = new Vue({
     el: '#laravel-admin_app'
 });
 
-$(document).on('keydown', function (event) {
-    if (event.ctrlKey && event.altKey && event.keyCode == 70) {
-        $("#header_search").focus();
-    }
-});
-
 // Menu toggles
 $(function () {
     var menuToggleButton = $("._laravel-admin button.menu-toggle");
@@ -167,15 +161,34 @@ $(function () {
         }
     });
 
-    var mainNavigation = $("._laravel-admin .main-navigation ul");
+    // Keyboard shortcut for search
+    $(document).on('keydown', function (event) {
+        if (event.ctrlKey && event.shiftKey && event.keyCode == 70) {
+            $("#header_search").focus();
+        }
+    });
+    $("#header_search").on("keydown", function (event) {
+        if (event.key == "Escape" && $(this).val() == "") {
+            $(this).blur();
+        }
+    });
 
-    mainNavigation.on("click", "li.has-children", function (event) {
+    // Main nav dropdown functionality
+    var mainNavigation = $("._laravel-admin .main-navigation");
+    mainNavigation.find("ul").on("click", "li.has-children", function (event) {
         if ($(event.target).closest("li").hasClass("has-children")) {
-            event.preventDefault();
-            event.stopPropagation();
+            event.preventDefault();event.stopPropagation();
             $(event.target).closest("li").toggleClass("active");
         }
     });
+
+    // Clone user menu to the main nav for mobile
+    var accountMenu = $(".la_account-dropdown .la_dropdown-menu ul");
+    if (accountMenu.length) {
+        var menuTitle = "<div class='menu-title mobile-account-menu'>Account</div>";
+        mainNavigation.append(menuTitle);
+        mainNavigation.append(accountMenu.clone().addClass("mobile-account-menu"));
+    }
 });
 
 /***/ }),
@@ -12525,7 +12538,7 @@ exports = module.exports = __webpack_require__(13)(false);
 
 
 // module
-exports.push([module.i, "\n.search-input-wrapper {\n  position: relative;\n}\n.search-input-wrapper i.fa.fa-search {\n    position: absolute;\n    top: 50%;\n    left: 0.75rem;\n    -webkit-transform: translateY(-50%);\n            transform: translateY(-50%);\n    font-size: 0.7rem;\n    color: #bbbbbb;\n    -webkit-transition: 0.3s ease all;\n    transition: 0.3s ease all;\n}\n.search-input {\n  appearance: none;\n  -moz-appearance: none;\n  -webkit-appearance: none;\n  border: 1px solid #e2e7ef;\n  border-radius: 0.2rem;\n  font-size: 0.7rem;\n  padding: 0.3rem 0.75rem;\n  padding-left: 2rem;\n  color: #5a5a5a;\n}\n.search-input:focus {\n    outline: none;\n    border-color: #c1ccdd;\n}\n.search-input:focus + i.fa.fa-search {\n      color: #7d7d7d;\n}\n", ""]);
+exports.push([module.i, "\n.la_header-search-form {\n  padding-left: 1rem;\n}\n.search-input-wrapper {\n  position: relative;\n}\n.search-input-wrapper i.fa.fa-search {\n    position: absolute;\n    top: 50%;\n    left: 0.75rem;\n    -webkit-transform: translateY(-50%);\n            transform: translateY(-50%);\n    font-size: 0.7rem;\n    color: #bbbbbb;\n    -webkit-transition: 0.3s ease all;\n    transition: 0.3s ease all;\n}\n.search-input {\n  appearance: none;\n  -moz-appearance: none;\n  -webkit-appearance: none;\n  border: 1px solid #e2e7ef;\n  border-radius: 0.2rem;\n  font-size: 0.7rem;\n  padding: 0.3rem 0.75rem;\n  padding-left: 2rem;\n  color: #5a5a5a;\n}\n.search-input:focus {\n    outline: none;\n    border-color: #c1ccdd;\n}\n.search-input:focus + i.fa.fa-search {\n      color: #7d7d7d;\n}\n", ""]);
 
 // exports
 

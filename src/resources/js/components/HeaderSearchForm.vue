@@ -31,6 +31,10 @@
 </script>
 
 <style lang="scss">
+    .la_header-search-form {
+        padding-left: 1rem;
+    }
+
     .search-input-wrapper {
         position: relative;
 

@@ -66,5 +66,8 @@ class LaravelAdminServiceProvider extends ServiceProvider
             __DIR__.'/../config/laravel-admin.php',
             'laravel-admin'
         );
+
+//        config(["laravel-admin.main_navigation.products.counter" => 4]);
+//        config(["laravel-admin.main_navigation.settings.counter" => 165798432]);
     }
 }

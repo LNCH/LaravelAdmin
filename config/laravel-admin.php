@@ -17,18 +17,14 @@ return [
 
     'main_navigation' => [
         [
-            "title" => "Menu",
-        ],
-        [
             "url" => "/",
             "label" => "Dashboard",
             "icon" => "<i class='fa fa-fw fa-home'></i>"
         ],
-        [
+        'products' => [
             "url" => "/products",
             "label" => "Products",
             "icon" => "<i class='fa fa-fw fa-shopping-bag'></i>",
-            "counter" => 2,
             "children" => [
                 [
                     "url" => "/product-1",
@@ -58,18 +54,19 @@ return [
                 ]
             ]
         ],
-        [
+        'services' => [
             "url" => "/services",
             "label" => "Services",
-            "icon" => "<i class='fa fa-fw fa-cubes'></i>"
+            "icon" => "<i class='fa fa-fw fa-cubes'></i>",
+            "auth" => "test_permission"
         ],
-        [
+        'messages' => [
             "url" => "/messages",
             "label" => "Messages",
-            "counter" => 4,
-            "icon" => "<i class='fa fa-fw fa-envelope-o'></i>"
+            "icon" => "<i class='fa fa-fw fa-envelope-o'></i>",
+            "auth" => ["can_view" => App\Message::class]
         ],
-        [
+        'settings' => [
             "url" => "/settings",
             "label" => "Settings",
             "icon" => "<i class='fa fa-fw fa-gears'></i>"

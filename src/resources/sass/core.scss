@@ -42,6 +42,7 @@ $breakpoint-xs: 768px;
     --header-mobile-box-shadow: 2px 0 12px 3px var(--layout-border-color);
 
     --brand-panel-background: white;
+    --brand-panel-color: var(--body-color);
     --brand-panel-right-border: 1px solid var(--layout-border-color);
 
     --menu-toggle-right-border: var(--brand-panel-right-border);
@@ -177,11 +178,23 @@ html, body {
     font-weight: 600;
     white-space: nowrap;
     overflow: hidden;
+    color: var(--brand-panel-color);
 
     @include no-select;
 }
 
 ._laravel-admin .main-navigation {
+
+    .menu-title {
+        font-weight: 500;
+        font-size: 0.65rem;
+        color: #bfbfbf;
+        letter-spacing: 0.5px;
+        padding-left: 1.25rem;
+        line-height: 1;
+        margin: 0.75rem 0;
+        text-transform: uppercase;
+    }
 
     ul {
         margin: 0;
@@ -189,7 +202,14 @@ html, body {
 
         li {
 
-            a {
+            button {
+                @include clearAppearance;
+                width: 100%;
+                text-align: left;
+                cursor: pointer;
+            }
+
+            a, button {
                 display: block;
                 position: relative;
                 font-size: 0.9rem;
@@ -229,6 +249,7 @@ html, body {
                     line-height: 1.4rem;
                     border-radius: 0.2rem;
                     transition: 0.2s ease all;
+                    padding: 0 0.25rem;
                 }
 
                 .children-indicator + .counter {
@@ -282,8 +303,16 @@ html, body {
         }
     }
 
+    & > ul {
+        border-top: 1px solid var(--layout-border-color, whitesmoke);
+    }
+
     & > ul > li > ul {
         border-bottom: 1px solid var(--layout-border-color, whitesmoke);
+    }
+
+    .mobile-account-menu {
+        display: none;
     }
 }
 
@@ -353,5 +382,9 @@ html, body {
             box-shadow: none;
             @include padding(0.75, 0.5);
         }
+    }
+
+    ._laravel-admin .main-navigation .mobile-account-menu {
+        display: block;
     }
 }
