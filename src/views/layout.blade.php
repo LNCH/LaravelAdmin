@@ -19,7 +19,25 @@
             <search-form></search-form>
 
             <div class="header-content">
-                <div class="notifications-area"></div>
+                <div class="notifications-area">
+
+                    <notification-dropdown id="alerts" title="Alerts">
+                        <ul>
+                            <li><a href="#">Someone ordered a thing</a></li>
+                            <li><a href="#">Someone ordered a thing</a></li>
+                            <li><a href="#">Someone ordered a thing</a></li>
+                            <li><a href="#">Someone ordered a thing</a></li>
+                            <li><a href="#">Someone ordered a thing</a></li>
+                            <li><a href="#">Someone ordered a thing</a></li>
+                            <li><a href="#">Someone ordered a thing</a></li>
+                            <li><a href="#">Someone ordered a thing</a></li>
+                            <li><a href="#">Someone ordered a thing</a></li>
+                            <li><a href="#">Someone ordered a thing</a></li>
+                            <li><a href="#">Someone ordered a thing</a></li>
+                        </ul>
+                    </notification-dropdown>
+
+                </div>
 
                 <account-dropdown
                     :label="'Tom'"

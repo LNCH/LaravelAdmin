@@ -108,6 +108,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_AccountDropdown___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_AccountDropdown__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_HeaderSearchForm__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_HeaderSearchForm___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_HeaderSearchForm__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_NotificationDropdown__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_NotificationDropdown___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_NotificationDropdown__);
 window.Vue = __webpack_require__(3);
 
 // Load components
@@ -116,6 +118,9 @@ Vue.component('account-dropdown', __WEBPACK_IMPORTED_MODULE_0__components_Accoun
 
 
 Vue.component('search-form', __WEBPACK_IMPORTED_MODULE_1__components_HeaderSearchForm___default.a);
+
+
+Vue.component("notification-dropdown", __WEBPACK_IMPORTED_MODULE_2__components_NotificationDropdown___default.a);
 
 // Initialise Vue
 var app = new Vue({
@@ -12542,6 +12547,173 @@ exports.push([module.i, "\n.la_header-search-form {\n  padding-left: 1rem;\n}\n.
 
 // exports
 
+
+/***/ }),
+/* 25 */,
+/* 26 */,
+/* 27 */,
+/* 28 */,
+/* 29 */,
+/* 30 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(8)
+/* script */
+var __vue_script__ = __webpack_require__(31)
+/* template */
+var __vue_template__ = __webpack_require__(32)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "packages/lnch/laravel-admin/src/resources/js/components/NotificationDropdown.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-4d18f6ac", Component.options)
+  } else {
+    hotAPI.reload("data-v-4d18f6ac", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 31 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: 'notification-dropdown',
+    props: {
+        id: {
+            type: String
+        },
+        title: {
+            type: String
+        }
+    },
+    data: function data() {
+        return {
+            isActive: false,
+            hasUnread: false
+        };
+    },
+
+    methods: {
+        onClick: function onClick() {
+            this.isActive = !this.isActive;
+            this.hasUnread = false;
+        }
+    }
+});
+
+/***/ }),
+/* 32 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    {
+      staticClass: "notifications-dropdown",
+      class: { "has-unread": _vm.hasUnread },
+      attrs: { id: _vm.id }
+    },
+    [
+      _c(
+        "button",
+        {
+          class: { "is-active": _vm.isActive },
+          on: {
+            click: function($event) {
+              $event.preventDefault()
+              return _vm.onClick($event)
+            }
+          }
+        },
+        [_c("i", { staticClass: "fa fa-bell-o" })]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "dropdown-content" }, [
+        _vm.title
+          ? _c("div", { staticClass: "title" }, [_vm._v(_vm._s(_vm.title))])
+          : _vm._e(),
+        _vm._v(" "),
+        _c("div", { staticClass: "body" }, [_vm._t("default")], 2),
+        _vm._v(" "),
+        _vm._m(0)
+      ])
+    ]
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "footer" }, [
+      _c("a", { staticClass: "read-more", attrs: { href: "#" } }, [
+        _vm._v("See All")
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-4d18f6ac", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

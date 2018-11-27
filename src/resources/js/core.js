@@ -7,6 +7,9 @@ Vue.component('account-dropdown', AccountDropdown);
 import HeaderSearchForm from './components/HeaderSearchForm';
 Vue.component('search-form', HeaderSearchForm);
 
+import NotificationDropdown from './components/NotificationDropdown';
+Vue.component("notification-dropdown", NotificationDropdown);
+
 // Initialise Vue
 const app = new Vue({
     el: '#laravel-admin_app'
