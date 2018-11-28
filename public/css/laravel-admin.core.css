@@ -472,13 +472,13 @@ body {
   transition: 0.2s ease all;
 }
 
-._laravel-admin .notifications-area .notifications-dropdown button.is-active,
-._laravel-admin .notifications-area .notifications-dropdown button:hover {
-  background: var(--main-nav-hover-bg);
-}
-
 ._laravel-admin .notifications-area .notifications-dropdown button:focus {
   outline: none;
+}
+
+._laravel-admin .notifications-area .notifications-dropdown.is-active button,
+._laravel-admin .notifications-area .notifications-dropdown button:hover {
+  background: var(--main-nav-hover-bg);
 }
 
 ._laravel-admin .notifications-area .notifications-dropdown .dropdown-content {
@@ -549,7 +549,7 @@ body {
   border-bottom: none;
 }
 
-._laravel-admin .notifications-area .notifications-dropdown button.is-active + .dropdown-content {
+._laravel-admin .notifications-area .notifications-dropdown.is-active .dropdown-content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

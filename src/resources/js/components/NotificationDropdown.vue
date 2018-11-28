@@ -1,6 +1,6 @@
 <template>
-    <div class="notifications-dropdown" :id="id" :class="{ 'has-unread' : hasUnread }">
-        <button @click.prevent="onClick" :class="{ 'is-active' : isActive }">
+    <div class="notifications-dropdown" :id="id" :class="{ 'has-unread' : hasUnread, 'is-active' : isActive }">
+        <button @click.prevent.stop="onClick">
             <i class="fa fa-bell-o"></i>
         </button>
 
@@ -36,9 +36,17 @@
             };
         },
         methods: {
-            onClick() {
-                this.isActive = !this.isActive;
+            onClick(event) {
+                window.closeActiveWindow(event);
+                var $dropdown = $("#"+this.id);
+                $dropdown.toggleClass("is-active");
                 this.hasUnread = false;
+
+                if ($dropdown.hasClass("is-active")) {
+                    window.laActiveMenu = this.id;
+                } else if (window.laActiveMenu == this.id) {
+                    window.laActiveMenu = null;
+                }
             }
         }
     }

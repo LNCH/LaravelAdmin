@@ -333,12 +333,13 @@ html, body {
             color: var(--main-nav-text-color);
             transition: 0.2s ease all;
 
-            &.is-active, &:hover {
-                background: var(--main-nav-hover-bg);
-            }
             &:focus {
                 outline: none;
             }
+        }
+
+        &.is-active button, & button:hover {
+            background: var(--main-nav-hover-bg);
         }
 
         .dropdown-content {
@@ -403,7 +404,7 @@ html, body {
             }
         }
 
-        button.is-active + .dropdown-content {
+        &.is-active .dropdown-content {
             display: flex;
         }
     }

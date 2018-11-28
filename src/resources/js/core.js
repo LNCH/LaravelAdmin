@@ -15,6 +15,8 @@ const app = new Vue({
     el: '#laravel-admin_app'
 });
 
+window.laActiveMenu = null;
+
 // Menu toggles
 $(function() {
     var menuToggleButton = $("._laravel-admin button.menu-toggle");
@@ -81,5 +83,17 @@ $(function() {
         var menuTitle = "<div class='menu-title mobile-account-menu'>Account</div>";
         mainNavigation.append(menuTitle);
         mainNavigation.append(accountMenu.clone().addClass("mobile-account-menu"));
+    }
+
+    $(window).on("click", function (event) {
+        console.log(window.laActiveMenu);
+        closeActiveWindow(event);
+    });
+
+    window.closeActiveWindow = function (event) {
+        if (window.laActiveMenu != null && !$(event.target).parents("#"+window.laActiveMenu).length) {
+            $("#"+window.laActiveMenu).removeClass("is-active");
+            window.laActiveMenu = null;
+        }
     }
 });

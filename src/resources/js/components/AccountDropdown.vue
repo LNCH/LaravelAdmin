@@ -1,5 +1,5 @@
 <template>
-    <div class="la_account-dropdown la_close-on-clickaway">
+    <div :id="id" class="la_account-dropdown la_close-on-clickaway">
 
         <button @click="onClick" :class="{'is-active' : isActive, 'with-avatar': showAvatar}">
             <div class="user-avatar" v-if="showAvatar" :style="avatarUrlStyle"></div>
@@ -28,6 +28,7 @@
 <script>
     export default {
         props: {
+            "id" : { type: String, default: "account-dropdown" },
             "label" : { type: String, default: "Account" },
             "menuLinks" : { type: Array, default: [] },
             "showAvatar" : { type: Boolean, default: true },
@@ -52,8 +53,16 @@
             }
         },
         methods: {
-            onClick() {
-                this.isActive = !this.isActive;
+            onClick(event) {
+                window.closeActiveWindow(event);
+                var $dropdown = $("#"+this.id);
+                $dropdown.toggleClass("is-active");
+
+                if ($dropdown.hasClass("is-active")) {
+                    window.laActiveMenu = this.id;
+                } else if (window.laActiveMenu == this.id) {
+                    window.laActiveMenu = null;
+                }
             }
         }
     }
@@ -149,7 +158,7 @@
         }
 
         // Active state
-        button.is-active {
+        &.is-active > button {
 
             i.fa {
                 transform: rotate(180deg);
@@ -164,7 +173,7 @@
             outline: none;
         }
 
-        button:hover, button.is-active {
+        button:hover, &.is-active > button {
             background: var(--main-nav-hover-bg, rgba(0, 0, 0, 0.1));
         }
     }
