@@ -191,6 +191,10 @@ body {
   z-index: 4000;
 }
 
+._laravel-admin .main-header div.show-search {
+  display: none;
+}
+
 ._laravel-admin .main-header button.menu-toggle,
 ._laravel-admin .main-header button.show-search {
   display: none;
@@ -696,6 +700,10 @@ body {
     z-index: 4000;
     -webkit-box-shadow: var(--header-mobile-box-shadow);
             box-shadow: var(--header-mobile-box-shadow);
+  }
+
+  ._laravel-admin .main-header div.show-search {
+    width: var(--header-height);
   }
 
   ._laravel-admin .main-header button.menu-toggle,

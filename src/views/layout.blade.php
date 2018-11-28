@@ -9,53 +9,24 @@
             </button>
 
             <div class="brand-panel">
-                Brand Panel
+                @yield("brand_panel", "Brand Panel")
             </div> <!-- End .brand-panel -->
 
-            <button class="show-search">
-                <i class="fa fa-search"></i>
-            </button>
-
-            <search-form></search-form>
+            @if(config("laravel-admin.show_header_search", true))
+                <button class="show-search">
+                    <i class="fa fa-search"></i>
+                </button>
+                <search-form></search-form>
+            @else
+                <div class="show-search">&nbsp;</div>
+            @endif
 
             <div class="header-content">
                 <div class="notifications-area">
-
-                    <notification-dropdown id="alerts" title="Alerts" icon="fa-bell-o"
-                        show-more-text="Show More" show-more-url="{{ url("/alerts") }}"
-                        :has-unread="true">
-                        <ul>
-                            <li><a href="#">Someone ordered a thing</a></li>
-                            <li><a href="#">Someone ordered a thing</a></li>
-                            <li><a href="#">Someone ordered a thing</a></li>
-                            <li><a href="#">Someone ordered a thing</a></li>
-                            <li><a href="#">Someone ordered a thing</a></li>
-                            <li><a href="#">Someone ordered a thing</a></li>
-                            <li><a href="#">Someone ordered a thing</a></li>
-                            <li><a href="#">Someone ordered a thing</a></li>
-                            <li><a href="#">Someone ordered a thing</a></li>
-                            <li><a href="#">Someone ordered a thing</a></li>
-                            <li><a href="#">Someone ordered a thing</a></li>
-                        </ul>
-                    </notification-dropdown>
-
-                    <notification-dropdown id="messages" title="Messages" icon="fa-envelope-o"
-                                           show-more-text="Show More" show-more-url="{{ url("/messages") }}"
-                                           :has-unread="true">
-                        <ul>
-                            <li><a href="#">Someone ordered a thing</a></li>
-                            <li><a href="#">Someone ordered a thing</a></li>
-                            <li><a href="#">Someone ordered a thing</a></li>
-                        </ul>
-                    </notification-dropdown>
-
+                    @yield("notifications_area")
                 </div>
 
-                <account-dropdown
-                    :label="'Tom'"
-                    :avatar-image="'https://randomuser.me/api/portraits/women/91.jpg'"
-                    :menu-links="{{ json_encode(config("laravel-admin.account_dropdown_menu")) }}"
-                />
+                @yield("account_dropdown")
             </div> <!-- End .header-content -->
         </header> <!-- End .main-header -->
 
@@ -67,7 +38,6 @@
 
         <main class="main-content">
             <div class="inner-content">
-
                 <div class="container-fluid">
                     @yield("main-content")
                 </div>

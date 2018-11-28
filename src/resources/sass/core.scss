@@ -100,6 +100,10 @@ html, body {
             z-index: 4000;
         }
 
+        div.show-search {
+            display: none;
+        }
+
         button.menu-toggle, button.show-search {
             display: none;
             @include clearAppearance;
@@ -123,7 +127,6 @@ html, body {
                 outline: none;
             }
             &:hover, &.is-active {
-
                 background: rgba(0, 0, 0, 0.1);
             }
         }
@@ -449,6 +452,10 @@ html, body {
     ._laravel-admin .main-header {
         z-index: 4000;
         box-shadow: var(--header-mobile-box-shadow);
+
+        div.show-search {
+            width: var(--header-height);
+        }
 
         button.menu-toggle, button.show-search {
             display: inline;
