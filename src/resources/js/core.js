@@ -10,12 +10,12 @@ Vue.component('search-form', HeaderSearchForm);
 import NotificationDropdown from './components/NotificationDropdown';
 Vue.component("notification-dropdown", NotificationDropdown);
 
+import { eventBus } from './eventBus';
+
 // Initialise Vue
 const app = new Vue({
     el: '#laravel-admin_app'
 });
-
-window.laActiveMenu = null;
 
 // Menu toggles
 $(function() {
@@ -85,15 +85,15 @@ $(function() {
         mainNavigation.append(accountMenu.clone().addClass("mobile-account-menu"));
     }
 
+    window.laActiveMenu = "";
     $(window).on("click", function (event) {
-        console.log(window.laActiveMenu);
-        closeActiveWindow(event);
+        var $target = $(event.target);
+        if (window.laActiveMenu != "" && !$target.parents("#"+window.laActiveMenu).length) {
+            eventBus.$emit("close_la_menus");
+        }
     });
 
-    window.closeActiveWindow = function (event) {
-        if (window.laActiveMenu != null && !$(event.target).parents("#"+window.laActiveMenu).length) {
-            $("#"+window.laActiveMenu).removeClass("is-active");
-            window.laActiveMenu = null;
-        }
-    }
+    eventBus.$on("la_menu_clicked", function (menu) {
+        window.laActiveMenu = menu;
+    });
 });

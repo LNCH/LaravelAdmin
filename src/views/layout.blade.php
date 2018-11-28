@@ -21,7 +21,9 @@
             <div class="header-content">
                 <div class="notifications-area">
 
-                    <notification-dropdown id="alerts" title="Alerts">
+                    <notification-dropdown id="alerts" title="Alerts" icon="fa-bell-o"
+                        show-more-text="Show More" show-more-url="{{ url("/alerts") }}"
+                        :has-unread="true">
                         <ul>
                             <li><a href="#">Someone ordered a thing</a></li>
                             <li><a href="#">Someone ordered a thing</a></li>

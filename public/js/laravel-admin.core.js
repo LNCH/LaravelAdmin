@@ -529,6 +529,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_HeaderSearchForm___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_HeaderSearchForm__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_NotificationDropdown__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_NotificationDropdown___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_NotificationDropdown__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__eventBus__ = __webpack_require__(28);
 window.Vue = __webpack_require__(6);
 
 // Load components
@@ -541,12 +542,12 @@ Vue.component('search-form', __WEBPACK_IMPORTED_MODULE_1__components_HeaderSearc
 
 Vue.component("notification-dropdown", __WEBPACK_IMPORTED_MODULE_2__components_NotificationDropdown___default.a);
 
+
+
 // Initialise Vue
 var app = new Vue({
     el: '#laravel-admin_app'
 });
-
-window.laActiveMenu = null;
 
 // Menu toggles
 $(function () {
@@ -616,17 +617,17 @@ $(function () {
         mainNavigation.append(accountMenu.clone().addClass("mobile-account-menu"));
     }
 
+    window.laActiveMenu = "";
     $(window).on("click", function (event) {
-        console.log(window.laActiveMenu);
-        closeActiveWindow(event);
+        var $target = $(event.target);
+        if (window.laActiveMenu != "" && !$target.parents("#" + window.laActiveMenu).length) {
+            __WEBPACK_IMPORTED_MODULE_3__eventBus__["a" /* eventBus */].$emit("close_la_menus");
+        }
     });
 
-    window.closeActiveWindow = function (event) {
-        if (window.laActiveMenu != null && !$(event.target).parents("#" + window.laActiveMenu).length) {
-            $("#" + window.laActiveMenu).removeClass("is-active");
-            window.laActiveMenu = null;
-        }
-    };
+    __WEBPACK_IMPORTED_MODULE_3__eventBus__["a" /* eventBus */].$on("la_menu_clicked", function (menu) {
+        window.laActiveMenu = menu;
+    });
 });
 
 /***/ }),
@@ -12134,7 +12135,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n:root {\n  --account-dropdown-button-fontsize: 0.9rem;\n  --account-dropdown-button-vertical-padding: calc((var(--header-height) - var(--account-dropdown-button-fontsize)) / 2);\n  --account-dropdown-button-horizontal-padding: 1rem;\n  --account-dropdown-menu-width: 11rem;\n  --account-dropdown-left-border: 1px solid #e2e7ef;\n  --account-dropdown-avatar-size: 1.8rem;\n}\n.la_account-dropdown {\n  position: relative;\n}\n.la_account-dropdown button {\n    position: relative;\n    font-size: var(--account-dropdown-button-fontsize);\n    padding: var(--account-dropdown-button-vertical-padding) var(--account-dropdown-button-horizontal-padding);\n    margin: 0;\n    line-height: 1;\n    -webkit-appearance: none;\n    background: transparent;\n    cursor: pointer;\n    border: none;\n    border-left: var(--account-dropdown-left-border);\n    -webkit-transition: 0.3s ease all;\n    transition: 0.3s ease all;\n    color: var(--body-color);\n}\n.la_account-dropdown button.with-avatar {\n      padding-left: calc((var(--account-dropdown-button-horizontal-padding) * 2) + var(--account-dropdown-avatar-size));\n}\n.la_account-dropdown button i.fa {\n      font-size: 0.6rem;\n      margin-left: 0.5rem;\n      vertical-align: middle;\n      margin-top: -3px;\n      color: #333;\n      -webkit-transition: 0.3s ease all;\n      transition: 0.3s ease all;\n}\n.la_account-dropdown button .user-avatar {\n      position: absolute;\n      top: 50%;\n      left: var(--account-dropdown-button-horizontal-padding);\n      -webkit-transform: translateY(-50%);\n              transform: translateY(-50%);\n      max-height: var(--account-dropdown-avatar-size);\n      max-width: var(--account-dropdown-avatar-size);\n      width: var(--account-dropdown-avatar-size);\n      height: var(--account-dropdown-avatar-size);\n      background-size: cover;\n      border-radius: 0.3rem;\n      border: 1px solid #dadada;\n}\n.la_account-dropdown .la_dropdown-menu {\n    display: none;\n    background: white;\n    position: absolute;\n    top: 100%;\n    right: 0;\n    width: var(--account-dropdown-menu-width);\n    -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);\n            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);\n}\n.la_account-dropdown .la_dropdown-menu ul {\n      padding: 1rem 0;\n      margin: 0;\n}\n.la_account-dropdown .la_dropdown-menu ul li {\n        list-style-type: none;\n}\n.la_account-dropdown .la_dropdown-menu ul li a, .la_account-dropdown .la_dropdown-menu ul li button {\n          display: block;\n          width: 100%;\n          font-size: 0.9rem;\n          color: #333;\n          padding: 0.5rem 1.5rem;\n          line-height: 1;\n          text-align: left;\n          -webkit-transition: 0.3s ease all;\n          transition: 0.3s ease all;\n}\n.la_account-dropdown .la_dropdown-menu ul li a:hover, .la_account-dropdown .la_dropdown-menu ul li button:hover {\n            background: rgba(0, 0, 0, 0.05);\n            text-decoration: none;\n}\n.la_account-dropdown.is-active > button i.fa {\n    -webkit-transform: rotate(180deg);\n            transform: rotate(180deg);\n}\n.la_account-dropdown.is-active > button + .la_dropdown-menu {\n    display: block;\n}\n.la_account-dropdown button:focus {\n    outline: none;\n}\n.la_account-dropdown button:hover, .la_account-dropdown.is-active > button {\n    background: var(--main-nav-hover-bg, rgba(0, 0, 0, 0.1));\n}\n", ""]);
+exports.push([module.i, "\n:root {\n  --account-dropdown-button-fontsize: 0.9rem;\n  --account-dropdown-button-vertical-padding: calc((var(--header-height) - var(--account-dropdown-button-fontsize)) / 2);\n  --account-dropdown-button-horizontal-padding: 1rem;\n  --account-dropdown-menu-width: 11rem;\n  --account-dropdown-left-border: 1px solid #e2e7ef;\n  --account-dropdown-avatar-size: 1.8rem;\n}\n.la_account-dropdown {\n  position: relative;\n}\n.la_account-dropdown button {\n    position: relative;\n    font-size: var(--account-dropdown-button-fontsize);\n    padding: var(--account-dropdown-button-vertical-padding) var(--account-dropdown-button-horizontal-padding);\n    margin: 0;\n    line-height: 1;\n    -webkit-appearance: none;\n    background: transparent;\n    cursor: pointer;\n    border: none;\n    border-left: var(--account-dropdown-left-border);\n    -webkit-transition: 0.3s ease all;\n    transition: 0.3s ease all;\n    color: var(--body-color);\n}\n.la_account-dropdown button.with-avatar {\n      padding-left: calc((var(--account-dropdown-button-horizontal-padding) * 2) + var(--account-dropdown-avatar-size));\n}\n.la_account-dropdown button i.fa {\n      font-size: 0.6rem;\n      margin-left: 0.5rem;\n      vertical-align: middle;\n      margin-top: -3px;\n      color: #333;\n      -webkit-transition: 0.3s ease all;\n      transition: 0.3s ease all;\n}\n.la_account-dropdown button .user-avatar {\n      position: absolute;\n      top: 50%;\n      left: var(--account-dropdown-button-horizontal-padding);\n      -webkit-transform: translateY(-50%);\n              transform: translateY(-50%);\n      max-height: var(--account-dropdown-avatar-size);\n      max-width: var(--account-dropdown-avatar-size);\n      width: var(--account-dropdown-avatar-size);\n      height: var(--account-dropdown-avatar-size);\n      background-size: cover;\n      border-radius: 0.3rem;\n      border: 1px solid #dadada;\n}\n.la_account-dropdown .la_dropdown-menu {\n    display: none;\n    background: white;\n    position: absolute;\n    top: 100%;\n    right: 0;\n    width: var(--account-dropdown-menu-width);\n    -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);\n            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);\n}\n.la_account-dropdown .la_dropdown-menu ul {\n      padding: 1rem 0;\n      margin: 0;\n}\n.la_account-dropdown .la_dropdown-menu ul li {\n        list-style-type: none;\n}\n.la_account-dropdown .la_dropdown-menu ul li a, .la_account-dropdown .la_dropdown-menu ul li button {\n          display: block;\n          width: 100%;\n          font-size: 0.9rem;\n          color: #333;\n          padding: 0.5rem 1.5rem;\n          line-height: 1;\n          text-align: left;\n          -webkit-transition: 0.3s ease all;\n          transition: 0.3s ease all;\n}\n.la_account-dropdown .la_dropdown-menu ul li a:hover, .la_account-dropdown .la_dropdown-menu ul li button:hover {\n            background: rgba(0, 0, 0, 0.05);\n            text-decoration: none;\n}\n.la_account-dropdown button.is-active i.fa {\n    -webkit-transform: rotate(180deg);\n            transform: rotate(180deg);\n}\n.la_account-dropdown button.is-active + .la_dropdown-menu {\n    display: block;\n}\n.la_account-dropdown button:focus {\n    outline: none;\n}\n.la_account-dropdown button:hover, .la_account-dropdown.is-active > button {\n    background: var(--main-nav-hover-bg, rgba(0, 0, 0, 0.1));\n}\n", ""]);
 
 // exports
 
@@ -12178,6 +12179,7 @@ module.exports = function listToStyles (parentId, list) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__eventBus__ = __webpack_require__(28);
 //
 //
 //
@@ -12205,6 +12207,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: {
@@ -12233,17 +12237,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             return $("meta[name='csrf-token']").attr("content");
         }
     },
-    methods: {
-        onClick: function onClick(event) {
-            window.closeActiveWindow(event);
-            var $dropdown = $("#" + this.id);
-            $dropdown.toggleClass("is-active");
+    mounted: function mounted() {
+        var vm = this;
+        __WEBPACK_IMPORTED_MODULE_0__eventBus__["a" /* eventBus */].$on("close_la_menus", function () {
+            vm.isActive = false;
+        });
+    },
 
-            if ($dropdown.hasClass("is-active")) {
-                window.laActiveMenu = this.id;
-            } else if (window.laActiveMenu == this.id) {
-                window.laActiveMenu = null;
+    methods: {
+        onClick: function onClick() {
+            if (window.laActiveMenu != this.id && window.laActiveMenu != "") {
+                __WEBPACK_IMPORTED_MODULE_0__eventBus__["a" /* eventBus */].$emit("close_la_menus");
             }
+
+            this.isActive = !this.isActive;
+            var activeMenu = this.isActive ? this.id : "";
+            __WEBPACK_IMPORTED_MODULE_0__eventBus__["a" /* eventBus */].$emit("la_menu_clicked", activeMenu);
         }
     }
 });
@@ -12618,6 +12627,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__eventBus__ = __webpack_require__(28);
 //
 //
 //
@@ -12634,40 +12644,42 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
+
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'notification-dropdown',
     props: {
-        id: {
-            type: String
-        },
-        title: {
-            type: String
-        }
+        id: { type: String, required: true },
+        icon: { type: String, default: "fa-bell-o" },
+        title: { type: String },
+        hasUnread: { type: Boolean, default: false },
+        showMoreText: { type: String, default: "Show More" },
+        showMoreUrl: { type: String }
     },
     data: function data() {
         return {
             isActive: false,
-            hasUnread: false
+            unread: this.hasUnread
         };
+    },
+    mounted: function mounted() {
+        var vm = this;
+        __WEBPACK_IMPORTED_MODULE_0__eventBus__["a" /* eventBus */].$on("close_la_menus", function () {
+            vm.isActive = false;
+        });
     },
 
     methods: {
-        onClick: function onClick(event) {
-            window.closeActiveWindow(event);
-            var $dropdown = $("#" + this.id);
-            $dropdown.toggleClass("is-active");
-            this.hasUnread = false;
-
-            if ($dropdown.hasClass("is-active")) {
-                window.laActiveMenu = this.id;
-            } else if (window.laActiveMenu == this.id) {
-                window.laActiveMenu = null;
+        onClick: function onClick() {
+            if (window.laActiveMenu != this.id && window.laActiveMenu != "") {
+                __WEBPACK_IMPORTED_MODULE_0__eventBus__["a" /* eventBus */].$emit("close_la_menus");
             }
+
+            this.isActive = !this.isActive;
+            this.unread = false;
+            var activeMenu = this.isActive ? this.id : "";
+            __WEBPACK_IMPORTED_MODULE_0__eventBus__["a" /* eventBus */].$emit("la_menu_clicked", activeMenu);
         }
     }
 });
@@ -12684,7 +12696,7 @@ var render = function() {
     "div",
     {
       staticClass: "notifications-dropdown",
-      class: { "has-unread": _vm.hasUnread, "is-active": _vm.isActive },
+      class: { "is-active": _vm.isActive },
       attrs: { id: _vm.id }
     },
     [
@@ -12694,12 +12706,11 @@ var render = function() {
           on: {
             click: function($event) {
               $event.preventDefault()
-              $event.stopPropagation()
               return _vm.onClick($event)
             }
           }
         },
-        [_c("i", { staticClass: "fa fa-bell-o" })]
+        [_c("i", { staticClass: "fa", class: _vm.icon })]
       ),
       _vm._v(" "),
       _c("div", { staticClass: "dropdown-content" }, [
@@ -12709,23 +12720,20 @@ var render = function() {
         _vm._v(" "),
         _c("div", { staticClass: "body" }, [_vm._t("default")], 2),
         _vm._v(" "),
-        _vm._m(0)
+        _vm.showMoreText && _vm.showMoreUrl
+          ? _c("div", { staticClass: "footer" }, [
+              _c(
+                "a",
+                { staticClass: "read-more", attrs: { href: _vm.showMoreUrl } },
+                [_vm._v(_vm._s(_vm.showMoreText))]
+              )
+            ])
+          : _vm._e()
       ])
     ]
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "footer" }, [
-      _c("a", { staticClass: "read-more", attrs: { href: "#" } }, [
-        _vm._v("See All")
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -12740,6 +12748,18 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 25 */,
+/* 26 */,
+/* 27 */,
+/* 28 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return eventBus; });
+window.Vue = __webpack_require__(6);
+var eventBus = new Vue();
 
 /***/ })
 /******/ ]);

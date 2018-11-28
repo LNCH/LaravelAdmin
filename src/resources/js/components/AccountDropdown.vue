@@ -26,6 +26,8 @@
 </template>
 
 <script>
+    import { eventBus } from './../eventBus';
+
     export default {
         props: {
             "id" : { type: String, default: "account-dropdown" },
@@ -52,17 +54,21 @@
                 return $("meta[name='csrf-token']").attr("content");
             }
         },
+        mounted() {
+            var vm = this;
+            eventBus.$on("close_la_menus", function() {
+                vm.isActive = false;
+            });
+        },
         methods: {
-            onClick(event) {
-                window.closeActiveWindow(event);
-                var $dropdown = $("#"+this.id);
-                $dropdown.toggleClass("is-active");
-
-                if ($dropdown.hasClass("is-active")) {
-                    window.laActiveMenu = this.id;
-                } else if (window.laActiveMenu == this.id) {
-                    window.laActiveMenu = null;
+            onClick() {
+                if (window.laActiveMenu != this.id && window.laActiveMenu != "") {
+                    eventBus.$emit("close_la_menus");
                 }
+
+                this.isActive = !this.isActive;
+                var activeMenu = this.isActive ? this.id : "";
+                eventBus.$emit("la_menu_clicked", activeMenu);
             }
         }
     }
@@ -158,7 +164,7 @@
         }
 
         // Active state
-        &.is-active > button {
+        button.is-active {
 
             i.fa {
                 transform: rotate(180deg);
