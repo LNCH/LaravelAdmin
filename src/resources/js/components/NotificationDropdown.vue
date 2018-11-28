@@ -1,5 +1,6 @@
 <template>
-    <div class="notifications-dropdown" :id="id" :class="{ 'is-active' : isActive, 'has-unread' : unread }">
+    <div class="notifications-dropdown" :id="id" :class="{ 'is-active' : isActive, 'has-unread' : unread }"
+        :style="{ display: isLoaded ? '' : 'none' }">
         <button @click.prevent="onClick">
             <i class="fa" :class="icon"></i>
         </button>
@@ -30,7 +31,8 @@
         data() {
             return {
                 isActive: false,
-                unread: this.hasUnread
+                unread: this.hasUnread,
+                isLoaded: false
             }
         },
         mounted() {
@@ -38,6 +40,7 @@
             eventBus.$on("close_la_menus", function() {
                 vm.isActive = false;
             });
+            vm.isLoaded = true;
         },
         methods: {
             onClick() {

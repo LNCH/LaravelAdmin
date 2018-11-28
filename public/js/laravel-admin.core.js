@@ -12644,6 +12644,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -12660,7 +12661,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             isActive: false,
-            unread: this.hasUnread
+            unread: this.hasUnread,
+            isLoaded: false
         };
     },
     mounted: function mounted() {
@@ -12668,6 +12670,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         __WEBPACK_IMPORTED_MODULE_0__eventBus__["a" /* eventBus */].$on("close_la_menus", function () {
             vm.isActive = false;
         });
+        vm.isLoaded = true;
     },
 
     methods: {
@@ -12697,6 +12700,7 @@ var render = function() {
     {
       staticClass: "notifications-dropdown",
       class: { "is-active": _vm.isActive, "has-unread": _vm.unread },
+      style: { display: _vm.isLoaded ? "" : "none" },
       attrs: { id: _vm.id }
     },
     [
