@@ -449,6 +449,124 @@ body {
   display: none;
 }
 
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+
+  10% {
+    -webkit-transform: scale(1.35);
+            transform: scale(1.35);
+  }
+
+  20% {
+    -webkit-transform: scale(1.15);
+            transform: scale(1.15);
+  }
+
+  30% {
+    -webkit-transform: scale(1.35);
+            transform: scale(1.35);
+  }
+
+  40% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+
+  10% {
+    -webkit-transform: scale(1.35);
+            transform: scale(1.35);
+  }
+
+  20% {
+    -webkit-transform: scale(1.15);
+            transform: scale(1.15);
+  }
+
+  30% {
+    -webkit-transform: scale(1.35);
+            transform: scale(1.35);
+  }
+
+  40% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@-webkit-keyframes pulse-border {
+  0% {
+    -webkit-box-shadow: 0 0 0 0px red;
+            box-shadow: 0 0 0 0px red;
+  }
+
+  20% {
+    -webkit-box-shadow: 0 0 8px 0px red;
+            box-shadow: 0 0 8px 0px red;
+  }
+
+  40% {
+    -webkit-box-shadow: 0 0 16px 0px rgba(255, 0, 0, 0);
+            box-shadow: 0 0 16px 0px rgba(255, 0, 0, 0);
+  }
+
+  41% {
+    -webkit-box-shadow: 0 0 0 0px red;
+            box-shadow: 0 0 0 0px red;
+  }
+
+  100% {
+    -webkit-box-shadow: 0 0 0 0px red;
+            box-shadow: 0 0 0 0px red;
+  }
+}
+
+@keyframes pulse-border {
+  0% {
+    -webkit-box-shadow: 0 0 0 0px red;
+            box-shadow: 0 0 0 0px red;
+  }
+
+  20% {
+    -webkit-box-shadow: 0 0 8px 0px red;
+            box-shadow: 0 0 8px 0px red;
+  }
+
+  40% {
+    -webkit-box-shadow: 0 0 16px 0px rgba(255, 0, 0, 0);
+            box-shadow: 0 0 16px 0px rgba(255, 0, 0, 0);
+  }
+
+  41% {
+    -webkit-box-shadow: 0 0 0 0px red;
+            box-shadow: 0 0 0 0px red;
+  }
+
+  100% {
+    -webkit-box-shadow: 0 0 0 0px red;
+            box-shadow: 0 0 0 0px red;
+  }
+}
+
 ._laravel-admin .notifications-area {
   padding-right: 1rem;
 }
@@ -456,6 +574,20 @@ body {
 ._laravel-admin .notifications-area .notifications-dropdown {
   display: inline-block;
   position: relative;
+}
+
+._laravel-admin .notifications-area .notifications-dropdown.has-unread::after {
+  content: '';
+  display: block;
+  width: 0.4rem;
+  height: 0.4rem;
+  background: #e36060;
+  border-radius: 50%;
+  position: absolute;
+  top: 30%;
+  left: 60%;
+  -webkit-animation: pulse 2s infinite;
+          animation: pulse 2s infinite;
 }
 
 ._laravel-admin .notifications-area .notifications-dropdown button {

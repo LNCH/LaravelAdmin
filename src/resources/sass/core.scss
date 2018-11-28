@@ -318,12 +318,42 @@ html, body {
     }
 }
 
+@keyframes pulse {
+    0% { transform: scale(1); }
+    10% { transform: scale(1.35); }
+    20% { transform: scale(1.15); }
+    30% { transform: scale(1.35); }
+    40% { transform: scale(1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes pulse-border {
+    0% { box-shadow: 0 0 0 0px red; }
+    20% { box-shadow: 0 0 8px 0px red; }
+    40% { box-shadow: 0 0 16px 0px rgba(255, 0, 0, 0); }
+    41% { box-shadow: 0 0 0 0px red; }
+    100% { box-shadow: 0 0 0 0px red; }
+}
+
 ._laravel-admin .notifications-area {
     padding-right: 1rem;
 
     .notifications-dropdown {
         display: inline-block;
         position: relative;
+
+        &.has-unread::after {
+            content: '';
+            display: block;
+            width: 0.4rem;
+            height: 0.4rem;
+            background: #e36060;
+            border-radius: 50%;
+            position: absolute;
+            top: 30%;
+            left: 60%;
+            animation: pulse 2s infinite;
+        }
 
         button {
             @include clearAppearance;

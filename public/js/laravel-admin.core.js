@@ -12696,7 +12696,7 @@ var render = function() {
     "div",
     {
       staticClass: "notifications-dropdown",
-      class: { "is-active": _vm.isActive },
+      class: { "is-active": _vm.isActive, "has-unread": _vm.unread },
       attrs: { id: _vm.id }
     },
     [

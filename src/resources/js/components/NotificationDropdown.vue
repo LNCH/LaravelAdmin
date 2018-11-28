@@ -1,5 +1,5 @@
 <template>
-    <div class="notifications-dropdown" :id="id" :class="{ 'is-active' : isActive }">
+    <div class="notifications-dropdown" :id="id" :class="{ 'is-active' : isActive, 'has-unread' : unread }">
         <button @click.prevent="onClick">
             <i class="fa" :class="icon"></i>
         </button>

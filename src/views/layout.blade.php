@@ -39,6 +39,16 @@
                         </ul>
                     </notification-dropdown>
 
+                    <notification-dropdown id="messages" title="Messages" icon="fa-envelope-o"
+                                           show-more-text="Show More" show-more-url="{{ url("/messages") }}"
+                                           :has-unread="true">
+                        <ul>
+                            <li><a href="#">Someone ordered a thing</a></li>
+                            <li><a href="#">Someone ordered a thing</a></li>
+                            <li><a href="#">Someone ordered a thing</a></li>
+                        </ul>
+                    </notification-dropdown>
+
                 </div>
 
                 <account-dropdown
