@@ -529,7 +529,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_HeaderSearchForm___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_HeaderSearchForm__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_NotificationDropdown__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_NotificationDropdown___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_NotificationDropdown__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__eventBus__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_ContentPanel__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_ContentPanel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_ContentPanel__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__eventBus__ = __webpack_require__(28);
 window.Vue = __webpack_require__(6);
 
 // Load components
@@ -541,6 +543,9 @@ Vue.component('search-form', __WEBPACK_IMPORTED_MODULE_1__components_HeaderSearc
 
 
 Vue.component("notification-dropdown", __WEBPACK_IMPORTED_MODULE_2__components_NotificationDropdown___default.a);
+
+
+Vue.component("content-panel", __WEBPACK_IMPORTED_MODULE_3__components_ContentPanel___default.a);
 
 
 
@@ -621,11 +626,11 @@ $(function () {
     $(window).on("click", function (event) {
         var $target = $(event.target);
         if (window.laActiveMenu != "" && !$target.parents("#" + window.laActiveMenu).length) {
-            __WEBPACK_IMPORTED_MODULE_3__eventBus__["a" /* eventBus */].$emit("close_la_menus");
+            __WEBPACK_IMPORTED_MODULE_4__eventBus__["a" /* eventBus */].$emit("close_la_menus");
         }
     });
 
-    __WEBPACK_IMPORTED_MODULE_3__eventBus__["a" /* eventBus */].$on("la_menu_clicked", function (menu) {
+    __WEBPACK_IMPORTED_MODULE_4__eventBus__["a" /* eventBus */].$on("la_menu_clicked", function (menu) {
         window.laActiveMenu = menu;
     });
 });
@@ -12764,6 +12769,152 @@ if (false) {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return eventBus; });
 window.Vue = __webpack_require__(6);
 var eventBus = new Vue();
+
+/***/ }),
+/* 29 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(32)
+}
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(30)
+/* template */
+var __vue_template__ = __webpack_require__(31)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "packages/lnch/laravel-admin/src/resources/js/components/ContentPanel.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-466a121b", Component.options)
+  } else {
+    hotAPI.reload("data-v-466a121b", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 30 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: 'ContentPanel'
+});
+
+/***/ }),
+/* 31 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "content-panel" }, [
+    _c("div", { staticClass: "header" }),
+    _vm._v(" "),
+    _c("div", { staticClass: "body" }, [_vm._t("default")], 2),
+    _vm._v(" "),
+    _c("div", { staticClass: "footer" })
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-466a121b", module.exports)
+  }
+}
+
+/***/ }),
+/* 32 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(33);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("cae24ffe", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../../../node_modules/css-loader/index.js!../../../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-466a121b\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../../../node_modules/sass-loader/lib/loader.js!../../../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ContentPanel.vue", function() {
+     var newContent = require("!!../../../../../../../node_modules/css-loader/index.js!../../../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-466a121b\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../../../node_modules/sass-loader/lib/loader.js!../../../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ContentPanel.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 33 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n._laravel-admin .content-panel {\n  background: white;\n  font-size: 1rem;\n}\n._laravel-admin .content-panel .body {\n    padding: 1rem 1.5rem;\n}\n", ""]);
+
+// exports
+
 
 /***/ })
 /******/ ]);

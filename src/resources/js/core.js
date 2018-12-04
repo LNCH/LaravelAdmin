@@ -10,6 +10,9 @@ Vue.component('search-form', HeaderSearchForm);
 import NotificationDropdown from './components/NotificationDropdown';
 Vue.component("notification-dropdown", NotificationDropdown);
 
+import ContentPanel from './components/ContentPanel';
+Vue.component("content-panel", ContentPanel);
+
 import { eventBus } from './eventBus';
 
 // Initialise Vue

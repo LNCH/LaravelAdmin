@@ -4,8 +4,9 @@ return [
     'default_body_classes' => [],
     'bootstrap_url' => 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css',
 
-    'show_header_search' => false,
+    'show_header_search' => true,
 
+    'show_account_dropdown' => true,
     'account_dropdown_menu' => [
         [
             'url' => '/user/profile',
