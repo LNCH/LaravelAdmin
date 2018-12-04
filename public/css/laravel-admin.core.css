@@ -191,6 +191,12 @@ body {
   z-index: 4000;
 }
 
+._laravel-admin .main-header .brand-panel img {
+  max-height: var(--header-height-1rem);
+  max-width: 90%;
+  margin: 0;
+}
+
 ._laravel-admin .main-header div.show-search {
   display: none;
 }

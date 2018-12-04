@@ -98,6 +98,12 @@ html, body {
             flex: 0 0 var(--sidebar-width);
             background: var(--brand-panel-background);
             z-index: 4000;
+
+            img {
+                max-height: var(--header-height - 1rem);
+                max-width: 90%;
+                margin: 0;
+            }
         }
 
         div.show-search {

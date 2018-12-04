@@ -60,38 +60,11 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports) {
-
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || Function("return this")() || (1,eval)("this");
-} catch(e) {
-	// This works if the window reference is available
-	if(typeof window === "object")
-		g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
-
-/***/ }),
-/* 1 */
 /***/ (function(module, exports) {
 
 /* globals __VUE_SSR_CONTEXT__ */
@@ -200,6 +173,33 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
+/* 1 */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1,eval)("this");
+} catch(e) {
+	// This works if the window reference is available
+	if(typeof window === "object")
+		g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
 /* 2 */
 /***/ (function(module, exports) {
 
@@ -301,7 +301,7 @@ if (typeof DEBUG !== 'undefined' && DEBUG) {
   ) }
 }
 
-var listToStyles = __webpack_require__(13)
+var listToStyles = __webpack_require__(14)
 
 /*
 type StyleObject = {
@@ -511,132 +511,15 @@ function applyToTag (styleElement, obj) {
 
 /***/ }),
 /* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(5);
-module.exports = __webpack_require__(24);
-
-
-/***/ }),
-/* 5 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_AccountDropdown__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_AccountDropdown___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_AccountDropdown__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_HeaderSearchForm__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_HeaderSearchForm___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_HeaderSearchForm__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_NotificationDropdown__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_NotificationDropdown___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_NotificationDropdown__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_ContentPanel__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_ContentPanel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_ContentPanel__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__eventBus__ = __webpack_require__(28);
-window.Vue = __webpack_require__(6);
-
-// Load components
-
-Vue.component('account-dropdown', __WEBPACK_IMPORTED_MODULE_0__components_AccountDropdown___default.a);
-
-
-Vue.component('search-form', __WEBPACK_IMPORTED_MODULE_1__components_HeaderSearchForm___default.a);
-
-
-Vue.component("notification-dropdown", __WEBPACK_IMPORTED_MODULE_2__components_NotificationDropdown___default.a);
-
-
-Vue.component("content-panel", __WEBPACK_IMPORTED_MODULE_3__components_ContentPanel___default.a);
-
-
-
-// Initialise Vue
-var app = new Vue({
-    el: '#laravel-admin_app'
-});
-
-// Menu toggles
-$(function () {
-    var menuToggleButton = $("._laravel-admin button.menu-toggle");
-    var searchToggleButton = $("._laravel-admin button.show-search");
-    var sidebar = $("._laravel-admin .main-sidebar");
-    var headerSearch = $("._laravel-admin .la_header-search-form");
-
-    menuToggleButton.on("click", function (event) {
-        event.preventDefault();
-
-        searchToggleButton.removeClass("is-active");
-        headerSearch.removeClass("open");
-
-        var $this = $(this);
-        if ($this.hasClass("is-active")) {
-            $this.removeClass("is-active");
-            sidebar.removeClass("open");
-        } else {
-            $this.addClass("is-active");
-            sidebar.addClass("open");
-        }
-    });
-
-    searchToggleButton.on("click", function (event) {
-        event.preventDefault();
-
-        menuToggleButton.removeClass("is-active");
-        sidebar.removeClass("open");
-
-        var $this = $(this);
-        if ($this.hasClass("is-active")) {
-            $this.removeClass("is-active");
-            headerSearch.removeClass("open");
-        } else {
-            $this.addClass("is-active");
-            headerSearch.addClass("open");
-        }
-    });
-
-    // Keyboard shortcut for search
-    $(document).on('keydown', function (event) {
-        if (event.ctrlKey && event.shiftKey && event.keyCode == 70) {
-            $("#header_search").focus();
-        }
-    });
-    $("#header_search").on("keydown", function (event) {
-        if (event.key == "Escape" && $(this).val() == "") {
-            $(this).blur();
-        }
-    });
-
-    // Main nav dropdown functionality
-    var mainNavigation = $("._laravel-admin .main-navigation");
-    mainNavigation.find("ul").on("click", "li.has-children", function (event) {
-        if ($(event.target).closest("li").hasClass("has-children")) {
-            event.preventDefault();event.stopPropagation();
-            $(event.target).closest("li").toggleClass("active");
-        }
-    });
-
-    // Clone user menu to the main nav for mobile
-    var accountMenu = $(".la_account-dropdown .la_dropdown-menu ul");
-    if (accountMenu.length) {
-        var menuTitle = "<div class='menu-title mobile-account-menu'>Account</div>";
-        mainNavigation.append(menuTitle);
-        mainNavigation.append(accountMenu.clone().addClass("mobile-account-menu"));
-    }
-
-    window.laActiveMenu = "";
-    $(window).on("click", function (event) {
-        var $target = $(event.target);
-        if (window.laActiveMenu != "" && !$target.parents("#" + window.laActiveMenu).length) {
-            __WEBPACK_IMPORTED_MODULE_4__eventBus__["a" /* eventBus */].$emit("close_la_menus");
-        }
-    });
-
-    __WEBPACK_IMPORTED_MODULE_4__eventBus__["a" /* eventBus */].$on("la_menu_clicked", function (menu) {
-        window.laActiveMenu = menu;
-    });
-});
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return eventBus; });
+window.Vue = __webpack_require__(5);
+var eventBus = new Vue();
 
 /***/ }),
-/* 6 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11599,10 +11482,136 @@ Vue.compile = compileToFunctions;
 
 module.exports = Vue;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(7).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(8).setImmediate))
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(7);
+module.exports = __webpack_require__(30);
+
 
 /***/ }),
 /* 7 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_AccountDropdown__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_AccountDropdown___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_AccountDropdown__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_HeaderSearchForm__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_HeaderSearchForm___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_HeaderSearchForm__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_NotificationDropdown__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_NotificationDropdown___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_NotificationDropdown__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_ContentPanel__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_ContentPanel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_ContentPanel__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__eventBus__ = __webpack_require__(4);
+window.Vue = __webpack_require__(5);
+
+// Load components
+
+Vue.component('account-dropdown', __WEBPACK_IMPORTED_MODULE_0__components_AccountDropdown___default.a);
+
+
+Vue.component('search-form', __WEBPACK_IMPORTED_MODULE_1__components_HeaderSearchForm___default.a);
+
+
+Vue.component("notification-dropdown", __WEBPACK_IMPORTED_MODULE_2__components_NotificationDropdown___default.a);
+
+
+Vue.component("content-panel", __WEBPACK_IMPORTED_MODULE_3__components_ContentPanel___default.a);
+
+
+
+// Initialise Vue
+var app = new Vue({
+    el: '#laravel-admin_app'
+});
+
+// Menu toggles
+$(function () {
+    var menuToggleButton = $("._laravel-admin button.menu-toggle");
+    var searchToggleButton = $("._laravel-admin button.show-search");
+    var sidebar = $("._laravel-admin .main-sidebar");
+    var headerSearch = $("._laravel-admin .la_header-search-form");
+
+    menuToggleButton.on("click", function (event) {
+        event.preventDefault();
+
+        searchToggleButton.removeClass("is-active");
+        headerSearch.removeClass("open");
+
+        var $this = $(this);
+        if ($this.hasClass("is-active")) {
+            $this.removeClass("is-active");
+            sidebar.removeClass("open");
+        } else {
+            $this.addClass("is-active");
+            sidebar.addClass("open");
+        }
+    });
+
+    searchToggleButton.on("click", function (event) {
+        event.preventDefault();
+
+        menuToggleButton.removeClass("is-active");
+        sidebar.removeClass("open");
+
+        var $this = $(this);
+        if ($this.hasClass("is-active")) {
+            $this.removeClass("is-active");
+            headerSearch.removeClass("open");
+        } else {
+            $this.addClass("is-active");
+            headerSearch.addClass("open");
+        }
+    });
+
+    // Keyboard shortcut for search
+    $(document).on('keydown', function (event) {
+        if (event.ctrlKey && event.shiftKey && event.keyCode == 70) {
+            $("#header_search").focus();
+        }
+    });
+    $("#header_search").on("keydown", function (event) {
+        if (event.key == "Escape" && $(this).val() == "") {
+            $(this).blur();
+        }
+    });
+
+    // Main nav dropdown functionality
+    var mainNavigation = $("._laravel-admin .main-navigation");
+    mainNavigation.find("ul").on("click", "li.has-children", function (event) {
+        if ($(event.target).closest("li").hasClass("has-children")) {
+            event.preventDefault();event.stopPropagation();
+            $(event.target).closest("li").toggleClass("active");
+        }
+    });
+
+    // Clone user menu to the main nav for mobile
+    var accountMenu = $(".la_account-dropdown .la_dropdown-menu ul");
+    if (accountMenu.length) {
+        var menuTitle = "<div class='menu-title mobile-account-menu'>Account</div>";
+        mainNavigation.append(menuTitle);
+        mainNavigation.append(accountMenu.clone().addClass("mobile-account-menu"));
+    }
+
+    window.laActiveMenu = "";
+    $(window).on("click", function (event) {
+        var $target = $(event.target);
+        if (window.laActiveMenu != "" && !$target.parents("#" + window.laActiveMenu).length) {
+            __WEBPACK_IMPORTED_MODULE_4__eventBus__["a" /* eventBus */].$emit("close_la_menus");
+        }
+    });
+
+    __WEBPACK_IMPORTED_MODULE_4__eventBus__["a" /* eventBus */].$on("la_menu_clicked", function (menu) {
+        window.laActiveMenu = menu;
+    });
+});
+
+/***/ }),
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var scope = (typeof global !== "undefined" && global) ||
@@ -11658,7 +11667,7 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(8);
+__webpack_require__(9);
 // On some exotic environments, it's not clear which object `setimmediate` was
 // able to install onto.  Search each possibility in the same order as the
 // `setimmediate` library.
@@ -11669,10 +11678,10 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
                          (typeof global !== "undefined" && global.clearImmediate) ||
                          (this && this.clearImmediate);
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -11862,10 +11871,10 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(9)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(10)))
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -12055,19 +12064,19 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(11)
+  __webpack_require__(12)
 }
-var normalizeComponent = __webpack_require__(1)
+var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(14)
+var __vue_script__ = __webpack_require__(15)
 /* template */
-var __vue_template__ = __webpack_require__(15)
+var __vue_template__ = __webpack_require__(16)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -12106,13 +12115,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(12);
+var content = __webpack_require__(13);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -12132,7 +12141,7 @@ if(false) {
 }
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(false);
@@ -12146,7 +12155,7 @@ exports.push([module.i, "\n:root {\n  --account-dropdown-button-fontsize: 0.9rem
 
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports) {
 
 /**
@@ -12179,12 +12188,12 @@ module.exports = function listToStyles (parentId, list) {
 
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__eventBus__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__eventBus__ = __webpack_require__(4);
 //
 //
 //
@@ -12263,7 +12272,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -12365,19 +12374,19 @@ if (false) {
 }
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(17)
+  __webpack_require__(18)
 }
-var normalizeComponent = __webpack_require__(1)
+var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(19)
+var __vue_script__ = __webpack_require__(20)
 /* template */
-var __vue_template__ = __webpack_require__(20)
+var __vue_template__ = __webpack_require__(21)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -12416,13 +12425,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(18);
+var content = __webpack_require__(19);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -12442,7 +12451,7 @@ if(false) {
 }
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(false);
@@ -12456,7 +12465,7 @@ exports.push([module.i, "\n.la_header-search-form {\n  padding-left: 1rem;\n}\n.
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12493,7 +12502,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -12580,15 +12589,15 @@ if (false) {
 }
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(1)
+var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(22)
+var __vue_script__ = __webpack_require__(23)
 /* template */
-var __vue_template__ = __webpack_require__(23)
+var __vue_template__ = __webpack_require__(24)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -12627,12 +12636,12 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__eventBus__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__eventBus__ = __webpack_require__(4);
 //
 //
 //
@@ -12693,7 +12702,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -12753,37 +12762,19 @@ if (false) {
 }
 
 /***/ }),
-/* 24 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 25 */,
-/* 26 */,
-/* 27 */,
-/* 28 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return eventBus; });
-window.Vue = __webpack_require__(6);
-var eventBus = new Vue();
-
-/***/ }),
-/* 29 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(32)
+  __webpack_require__(26)
 }
-var normalizeComponent = __webpack_require__(1)
+var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(30)
+var __vue_script__ = __webpack_require__(28)
 /* template */
-var __vue_template__ = __webpack_require__(31)
+var __vue_template__ = __webpack_require__(29)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -12822,7 +12813,47 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 30 */
+/* 26 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(27);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("cae24ffe", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../../../node_modules/css-loader/index.js!../../../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-466a121b\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../../../node_modules/sass-loader/lib/loader.js!../../../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ContentPanel.vue", function() {
+     var newContent = require("!!../../../../../../../node_modules/css-loader/index.js!../../../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-466a121b\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../../../node_modules/sass-loader/lib/loader.js!../../../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ContentPanel.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 27 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n._laravel-admin .content-panel {\n  background: white;\n  font-size: 1rem;\n}\n._laravel-admin .content-panel .body {\n    padding: 1rem 1.5rem;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 28 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12851,7 +12882,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 31 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -12877,44 +12908,10 @@ if (false) {
 }
 
 /***/ }),
-/* 32 */
-/***/ (function(module, exports, __webpack_require__) {
+/* 30 */
+/***/ (function(module, exports) {
 
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(33);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(3)("cae24ffe", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../../../../node_modules/css-loader/index.js!../../../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-466a121b\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../../../node_modules/sass-loader/lib/loader.js!../../../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ContentPanel.vue", function() {
-     var newContent = require("!!../../../../../../../node_modules/css-loader/index.js!../../../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-466a121b\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../../../node_modules/sass-loader/lib/loader.js!../../../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ContentPanel.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 33 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(2)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n._laravel-admin .content-panel {\n  background: white;\n  font-size: 1rem;\n}\n._laravel-admin .content-panel .body {\n    padding: 1rem 1.5rem;\n}\n", ""]);
-
-// exports
-
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
