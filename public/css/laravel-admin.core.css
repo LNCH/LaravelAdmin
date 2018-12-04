@@ -402,14 +402,18 @@ body {
   right: calc(var(--main-nav-right-padding) * 2 + 0.5rem);
 }
 
-._laravel-admin .main-navigation ul li a:hover,
-._laravel-admin .main-navigation ul li button:hover {
+._laravel-admin .main-navigation ul li.active a,
+._laravel-admin .main-navigation ul li.active button,
+._laravel-admin .main-navigation ul li:hover a,
+._laravel-admin .main-navigation ul li:hover button {
   text-decoration: none;
   background: var(--main-nav-hover-bg);
 }
 
-._laravel-admin .main-navigation ul li a:hover .counter,
-._laravel-admin .main-navigation ul li button:hover .counter {
+._laravel-admin .main-navigation ul li.active a .counter,
+._laravel-admin .main-navigation ul li.active button .counter,
+._laravel-admin .main-navigation ul li:hover a .counter,
+._laravel-admin .main-navigation ul li:hover button .counter {
   background: white;
 }
 

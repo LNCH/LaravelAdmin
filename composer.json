@@ -10,7 +10,10 @@
     "autoload": {
         "psr-4": {
             "Lnch\\LaravelAdmin\\": "src"
-        }
+        },
+        "files": [
+            "src/helpers.php"
+        ]
     },
     "extra": {
         "laravel": {

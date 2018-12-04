@@ -266,8 +266,10 @@ html, body {
                 .children-indicator + .counter {
                     right: calc(var(--main-nav-right-padding) * 2 + 0.5rem);
                 }
+            }
 
-                &:hover {
+            &.active, &:hover {
+                a, button {
                     text-decoration: none;
                     background: var(--main-nav-hover-bg);
 
