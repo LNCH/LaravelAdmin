@@ -40,13 +40,20 @@ class LaravelAdminServiceProvider extends ServiceProvider
             ]);
         }
 
+        // Publish public assets
         $this->publishes([
             __DIR__.'/../public' => public_path('vendor/lnch/laravel-admin'),
         ], 'public');
 
+        // Publish views
         $this->publishes([
             __DIR__.'/views' => resource_path('vendor/lnch/laravel-admin'),
         ], 'views');
+
+        // Publish config file
+        $this->publishes([
+            __DIR__.'/../config/laravel-admin.php' => config_path('laravel-admin.php')
+        ], "config");
     }
 
     /**
