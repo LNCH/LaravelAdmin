@@ -701,6 +701,11 @@ body {
   display: flex;
 }
 
+._laravel-admin .content-panel {
+  margin-bottom: 27.2px;
+  margin-bottom: 1.6rem;
+}
+
 @media screen and (max-width: 768px) {
   :root {
     --main-nav-y-padding: 0.75rem;

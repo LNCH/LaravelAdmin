@@ -7,24 +7,7 @@ $heading-font-family: 'Roboto Condensed', sans-serif;
 $heading-font-weight: 500;
 $base-font-size: 106.25;
 @import "typography";
-
-@mixin no-select() {
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-    -khtml-user-select: none; /* Konqueror HTML */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none; /* Non-prefixed version, currently
-                              supported by Chrome and Opera */
-}
-
-@mixin clearAppearance() {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    border: none;
-    background: transparent;
-}
+@import "utilities";
 
 $breakpoint-xs: 768px;
 
@@ -449,6 +432,10 @@ html, body {
             display: flex;
         }
     }
+}
+
+._laravel-admin .content-panel {
+    @include margin-bottom(1);
 }
 
 @media screen and (max-width: $breakpoint-xs)

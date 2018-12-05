@@ -12847,7 +12847,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n._laravel-admin .content-panel {\n  background: white;\n  font-size: 1rem;\n}\n._laravel-admin .content-panel .body {\n    padding: 1rem 1.5rem;\n}\n", ""]);
+exports.push([module.i, "\n:root {\n  --panel-heading-font-size: 0.8rem;\n  --panel-heading-line-height: 1.5;\n  --panel-heading-x-padding: 1.5rem;\n  --panel-heading-y-padding: 0.75rem;\n}\n._laravel-admin .content-panel {\n  background: white;\n  font-size: 1rem;\n  -webkit-box-shadow: 0px 0 8px 1px var(--layout-border-color);\n          box-shadow: 0px 0 8px 1px var(--layout-border-color);\n}\n._laravel-admin .content-panel .body {\n    padding: 0 1.5rem;\n    max-height: 0px;\n    overflow: hidden;\n    -webkit-transition: 0.3s ease all;\n    transition: 0.3s ease all;\n}\n._laravel-admin .content-panel .body.is-open {\n      padding: 1rem 1.5rem;\n      max-height: none;\n      overflow: auto;\n}\n._laravel-admin .content-panel .header {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    border-bottom: 1px solid var(--layout-border-color);\n}\n._laravel-admin .content-panel .header .title {\n      -webkit-box-flex: 1;\n          -ms-flex: 1 1 auto;\n              flex: 1 1 auto;\n      padding: var(--panel-heading-y-padding) var(--panel-heading-x-padding);\n      font-size: var(--panel-heading-font-size);\n      line-height: var(--panel-heading-line-height);\n      text-transform: uppercase;\n      font-weight: bold;\n      letter-spacing: 0.5px;\n}\n._laravel-admin .content-panel button.action {\n    height: 100%;\n    width: calc((var(--panel-heading-font-size) * var(--panel-heading-line-height)) + (var(--panel-heading-y-padding) * 2));\n    -webkit-appearance: none;\n    -moz-appearance: none;\n    appearance: none;\n    border: none;\n    background: transparent;\n    font-size: 0.6rem;\n    font-weight: normal;\n    border-left: 1px solid var(--layout-border-color);\n    cursor: pointer;\n}\n", ""]);
 
 // exports
 
@@ -12876,9 +12876,46 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    name: 'ContentPanel'
+    name: 'ContentPanel',
+    props: {
+        isCollapsible: {
+            type: Boolean,
+            default: false
+        },
+        isCollapsed: {
+            type: Boolean,
+            default: false
+        }
+    },
+    data: function data() {
+        return {
+            collapsed: this.isCollapsed
+        };
+    },
+
+    computed: {
+        isOpen: function isOpen() {
+            return !this.isCollapsible ? true : !this.collapsed;
+        }
+    },
+    methods: {
+        hasSlot: function hasSlot() {
+            var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'default';
+
+            return !!this.$slots[name] || !!this.$scopedSlots[name];
+        }
+    }
 });
 
 /***/ }),
@@ -12890,9 +12927,56 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "content-panel" }, [
-    _c("div", { staticClass: "header" }),
+    _vm.hasSlot("header") || _vm.hasSlot("header-icons") || _vm.isCollapsible
+      ? _c("div", { staticClass: "header" }, [
+          _c(
+            "div",
+            { staticClass: "title" },
+            [_vm._t("header", [_vm._v(" ")])],
+            2
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "icons" },
+            [
+              _vm._t("header-icons"),
+              _vm._v(" "),
+              _vm.isCollapsible
+                ? _c(
+                    "button",
+                    {
+                      staticClass: "action",
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          _vm.collapsed = !_vm.collapsed
+                        }
+                      }
+                    },
+                    [
+                      _c("i", {
+                        staticClass: "fa fa-fw",
+                        class: {
+                          "fa-minus": !_vm.collapsed,
+                          "fa-plus": _vm.collapsed
+                        }
+                      })
+                    ]
+                  )
+                : _vm._e()
+            ],
+            2
+          )
+        ])
+      : _vm._e(),
     _vm._v(" "),
-    _c("div", { staticClass: "body" }, [_vm._t("default")], 2),
+    _c(
+      "div",
+      { staticClass: "body", class: { "is-open": _vm.isOpen } },
+      [_vm._t("default")],
+      2
+    ),
     _vm._v(" "),
     _c("div", { staticClass: "footer" })
   ])
