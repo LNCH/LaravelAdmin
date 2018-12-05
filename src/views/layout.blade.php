@@ -39,11 +39,13 @@
         </aside> <!-- End .main-sidebar -->
 
         <main class="main-content">
+            @yield("main_content_start")
             <div class="inner-content">
                 <div class="container-fluid">
                     @yield("main_content")
                 </div>
             </div>
+            @yield("main_content_end")
         </main> <!-- End .main-content -->
     </div> <!-- End .page-wrapper -->
 @endsection

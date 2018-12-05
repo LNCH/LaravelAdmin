@@ -15,13 +15,16 @@
                 </button>
             </div>
         </div> <!-- End .header -->
+
         <div class="body" :class="{ 'is-open': isOpen }">
             <slot></slot>
+
+            <div class="footer">
+                <!-- Pagination -->
+                <!-- Action Buttons -->
+            </div> <!-- End .footer -->
         </div> <!-- End .body -->
-        <div class="footer">
-            <!-- Pagination -->
-            <!-- Action Buttons -->
-        </div> <!-- End .footer -->
+
     </div> <!-- End .content-panel -->
 </template>
 

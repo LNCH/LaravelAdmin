@@ -12885,6 +12885,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'ContentPanel',
@@ -12974,11 +12977,9 @@ var render = function() {
     _c(
       "div",
       { staticClass: "body", class: { "is-open": _vm.isOpen } },
-      [_vm._t("default")],
+      [_vm._t("default"), _vm._v(" "), _c("div", { staticClass: "footer" })],
       2
-    ),
-    _vm._v(" "),
-    _c("div", { staticClass: "footer" })
+    )
   ])
 }
 var staticRenderFns = []
