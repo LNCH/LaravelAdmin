@@ -19,7 +19,10 @@
         "laravel": {
             "providers": [
                 "Lnch\\LaravelAdmin\\LaravelAdminServiceProvider"
-            ]
+            ],
+            "aliases": {
+                "LaravelAdmin": "Lnch\\LaravelAdmin\\LaravelAdminLayoutFacade"
+            }
         }
     }
 }

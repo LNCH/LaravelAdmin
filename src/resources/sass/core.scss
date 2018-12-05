@@ -441,6 +441,14 @@ html, body {
     @include margin-bottom(1);
 }
 
+.table-sm td, .table-sm th {
+    padding: .5rem .75rem;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background: #f3f4f5;
+}
+
 @media screen and (max-width: $breakpoint-xs)
 {
     :root {

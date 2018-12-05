@@ -742,6 +742,15 @@ body {
   margin-bottom: 1.6rem;
 }
 
+.table-sm td,
+.table-sm th {
+  padding: .5rem .75rem;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background: #f3f4f5;
+}
+
 @media screen and (max-width: 768px) {
   :root {
     --main-nav-y-padding: 0.75rem;

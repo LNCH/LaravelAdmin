@@ -67,6 +67,9 @@
         --panel-heading-line-height: 1.5;
         --panel-heading-x-padding: 1.5rem;
         --panel-heading-y-padding: 0.75rem;
+
+        --panel-body-x-padding: 1.5rem;
+        --panel-body-y-padding: 1rem;
     }
 
     ._laravel-admin .content-panel {
@@ -75,15 +78,33 @@
         box-shadow: 0px 0 8px 1px var(--layout-border-color);
 
         .body {
-            padding: 0 1.5rem;
+            padding: 0 var(--panel-body-x-padding);
             max-height: 0px;
             overflow: hidden;
             transition: 0.3s ease all;
 
             &.is-open {
-                padding: 1rem 1.5rem;
+                padding: var(--panel-body-y-padding) var(--panel-body-x-padding);
                 max-height: none;
                 overflow: auto;
+            }
+
+            .full-width {
+                margin-left: calc(var(--panel-body-x-padding) * -1);
+                width: calc(100% + (var(--panel-body-x-padding) * 2));
+                border-left: none;
+                border-right: none;
+
+                tr {
+                   td:first-child, th:first-child {
+                       padding-left: var(--panel-body-x-padding);
+                       border-left: none;
+                   }
+                   td:last-child, th:last-child {
+                       padding-right: var(--panel-body-x-padding);
+                       border-right: none;
+                   }
+                }
             }
         }
 

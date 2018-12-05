@@ -74,6 +74,10 @@ class LaravelAdminServiceProvider extends ServiceProvider
             'laravel-admin'
         );
 
+        $this->app->bind('laravel-admin', function() {
+            return new LayoutHelpers();
+        });
+
 //        config(["laravel-admin.main_navigation.products.counter" => 4]);
 //        config(["laravel-admin.main_navigation.settings.counter" => 165798432]);
     }
