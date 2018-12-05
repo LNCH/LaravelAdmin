@@ -267,6 +267,18 @@ body {
   -ms-flex-item-align: stretch;
       align-self: stretch;
   text-align: right;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                              supported by Chrome and Opera */
 }
 
 ._laravel-admin .main-sidebar {
@@ -326,6 +338,18 @@ body {
   line-height: 1;
   margin: 0.75rem 0;
   text-transform: uppercase;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                              supported by Chrome and Opera */
 }
 
 ._laravel-admin .main-navigation ul {
@@ -354,6 +378,18 @@ body {
   color: var(--main-nav-text-color);
   -webkit-transition: 0.2s ease all;
   transition: 0.2s ease all;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                              supported by Chrome and Opera */
 }
 
 ._laravel-admin .main-navigation ul li a .menu-icon,

@@ -31,6 +31,8 @@
 </script>
 
 <style lang="scss">
+    @import "../../sass/utilities";
+
     .la_header-search-form {
         padding-left: 1rem;
     }
@@ -59,6 +61,7 @@
         padding: 0.3rem 0.75rem;
         padding-left: 2rem;
         color: #5a5a5a;
+        @include no-select;
 
         &:focus {
             outline: none;

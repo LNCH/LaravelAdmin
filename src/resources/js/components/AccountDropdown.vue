@@ -75,6 +75,8 @@
 </script>
 
 <style lang="scss">
+    @import "../../sass/utilities";
+
     :root {
         --account-dropdown-button-fontsize: 0.9rem;
         --account-dropdown-button-vertical-padding: calc((var(--header-height) - var(--account-dropdown-button-fontsize)) / 2);
@@ -103,6 +105,7 @@
             border-left: var(--account-dropdown-left-border);
             transition: 0.3s ease all;
             color: var(--body-color);
+            @include no-select;
 
             i.fa {
                 font-size: 0.6rem;

@@ -90,6 +90,7 @@
         .header {
             display: flex;
             border-bottom: 1px solid var(--layout-border-color);
+            @include no-select;
 
             .title {
                 flex: 1 1 auto;

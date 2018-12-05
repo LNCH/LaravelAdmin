@@ -136,6 +136,7 @@ html, body {
                 flex: 1 1 auto;
                 align-self: stretch;
                 text-align: right;
+                @include no-select;
             }
         }
     }
@@ -188,6 +189,7 @@ html, body {
         line-height: 1;
         margin: 0.75rem 0;
         text-transform: uppercase;
+        @include no-select;
     }
 
     ul {
@@ -211,6 +213,7 @@ html, body {
                 border-bottom: 1px solid var(--layout-border-color, whitesmoke);
                 color: var(--main-nav-text-color);
                 transition: 0.2s ease all;
+                @include no-select;
 
                 .menu-icon {
                     font-size: 0.8em;
