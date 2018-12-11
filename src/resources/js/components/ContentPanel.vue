@@ -132,6 +132,15 @@
             font-weight: normal;
             border-left: 1px solid var(--layout-border-color);
             cursor: pointer;
+            transition: 0.3s ease all;
+
+            &:focus {
+                outline: none;
+            }
+
+            &:hover {
+                background: rgba(0, 0, 0, 0.05);
+            }
         }
     }
 </style>
