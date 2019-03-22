@@ -306,6 +306,10 @@ body {
   min-height: calc(100vh - var(--header-height));
 }
 
+._laravel-admin .main-content .inner-content .container-fluid {
+  padding: 0;
+}
+
 .brand-panel {
   line-height: var(--header-height);
   text-align: center;
@@ -754,7 +758,7 @@ body {
 .page-header {
   position: relative;
   background: #f6faff;
-  padding: 2rem;
+  padding: 1rem 2rem;
 }
 
 .page-header::after {
@@ -771,6 +775,37 @@ body {
 
 .page-header h1 {
   margin: 0;
+  font-size: 1.4rem;
+}
+
+.page-header .breadcrumbs {
+  margin: 0;
+  padding: 0;
+}
+
+.page-header .breadcrumbs li {
+  display: inline;
+  list-style-icon: none;
+}
+
+.page-header .breadcrumbs li a {
+  position: relative;
+  font-size: 0.7rem;
+  margin-right: 0.75rem;
+  color: #444444;
+}
+
+.page-header .breadcrumbs li a::after {
+  content: '-';
+  position: absolute;
+  top: 50%;
+  right: -0.6rem;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.page-header .breadcrumbs li:last-child a::after {
+  display: none;
 }
 
 @media screen and (max-width: 768px) {
@@ -850,8 +885,15 @@ body {
   ._laravel-admin .main-content .inner-content {
     -webkit-box-shadow: none;
             box-shadow: none;
-    padding: 20.4px 13.6px;
-    padding: 1.2rem 0.8rem;
+    padding: 20.4px 20.4px;
+    padding: 1.2rem 1.2rem;
+  }
+
+  ._laravel-admin .main-content .inner-content .row {
+    margin-left: -20.4px;
+    margin-left: -1.2rem;
+    margin-right: -20.4px;
+    margin-right: -1.2rem;
   }
 
   ._laravel-admin .main-navigation .mobile-account-menu {

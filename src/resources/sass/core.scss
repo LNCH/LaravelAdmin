@@ -161,6 +161,10 @@ html, body {
             @include padding(1);
             box-shadow: var(--main-content-box-shadow);
             min-height: calc(100vh - var(--header-height));
+
+            .container-fluid {
+                padding: 0;
+            }
         }
     }
 }
@@ -452,7 +456,7 @@ html, body {
 .page-header {
     position: relative;
     background: #f6faff;
-    padding: 2rem;
+    padding: 1rem 2rem;
 
     &::after {
         position: absolute;
@@ -467,6 +471,36 @@ html, body {
 
     h1 {
         margin: 0;
+        font-size: 1.4rem;
+    }
+
+    .breadcrumbs {
+        margin: 0;
+        padding: 0;
+
+        li {
+            display: inline;
+            list-style-icon: none;
+
+            a {
+                position: relative;
+                font-size: 0.7rem;
+                margin-right: 0.75rem;
+                color: #444444;
+
+                &::after {
+                    content: '-';
+                    position: absolute;
+                    top: 50%;
+                    right: -0.6rem;
+                    transform: translateY(-50%);
+                }
+            }
+
+            &:last-child a::after {
+                display: none;
+            }
+        }
     }
 }
 
@@ -538,7 +572,12 @@ html, body {
 
         .inner-content {
             box-shadow: none;
-            @include padding(0.75, 0.5);
+            @include padding(0.75, 0.75);
+
+            .row {
+                @include margin-left(-0.75);
+                @include margin-right(-0.75);
+            }
         }
     }
 

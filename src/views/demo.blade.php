@@ -2,13 +2,26 @@
 
 @section("main_content_start")
     <div class="page-header">
-        <h1>Page Title</h1>
-    </div>
+        <div class="left">
+            <h1>Users Dashboard</h1>
+
+            <ul class="breadcrumbs">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Users</a></li>
+                <li><a href="#">Dashboard</a></li>
+            </ul>
+        </div> <!-- End .left -->
+
+        <div class="right">
+
+        </div> <!-- End .right -->
+        {{-- Breadcrumbs, description, action buttons --}}
+    </div> <!-- End .page-header -->
 @endsection
 
 @section("main_content")
     <div class="row">
-        <div class="col-md-7">
+        <div class="col-lg-7">
             <content-panel :is-collapsible="true">
                 <template slot="header">Registered Users</template>
 
@@ -49,7 +62,7 @@
                 <p>Left content goes here</p>
             </content-panel>
         </div>
-        <div class="col-md-5">
+        <div class="col-lg-5">
             <content-panel>
                 Right content goes here
             </content-panel>
