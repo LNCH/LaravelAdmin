@@ -1,0 +1,136 @@
+$breakpoint-xs: 768px;
+
+:root {
+    // Background and colour of user selections
+    --text-select-background: var(--brand-color, blue);
+    --text-select-color: white;
+
+    // Base background and font colour for the <html> and <body> tags
+    --body-background: #eff4fa;
+    --body-color: #53575d;
+
+
+    // Core Brand colour, used to enhance certain areas of the site in the brands colour
+    --brand-color: #e36060;
+    // Default color for structural borders on the site (between page elements, in panels etc.)
+    --layout-border-color: #e2e7ef;
+
+
+    // Height of the header (affects 'top' position of the sidebar and content areas)
+    --header-height: 3rem;
+    // Background colour of the header
+    --header-background: white;
+    // Box shadow added to the header (set to 'none' to remove shadow)
+    --header-box-shadow: 2px 0 8px 1px var(--layout-border-color);
+
+
+    // Background colour of the brand panel
+    --brand-panel-background: white;
+    // Font colour of the brand panel (if not using an image)
+    --brand-panel-color: var(--body-color);
+    // Right Border of the brand panel (used to separate from the header, set to 'none' if not used)
+    --brand-panel-rb-width: 1px;
+    --brand-panel-rb-type: solid;
+    --brand-panel-rb-color: var(--layout-border-color);
+    --brand-panel-right-border: none;
+
+
+    // Right Border used for mobile menu buttons
+    --menu-toggle-right-border: var(--brand-panel-rb-width) var(--brand-panel-rb-type) var(--brand-panel-rb-color);
+
+
+    // Width of the sidebar (contains the main navigation)
+    --sidebar-width: 13rem;
+    // Background colour of the sidebar
+    --sidebar-background: white;
+    // Top Border of the sidebar (used to separate from the brand panel, set to 'none' if not used)
+    --sidebar-top-border: 1px solid var(--layout-border-color);
+
+
+    // Used as an inset border for the main content area
+    --main-content-box-shadow: inset 2px 0 12px 3px var(--layout-border-color);
+    // Horizontal padding on the main content area
+    --main-content-x-padding: 1.6rem; // Must be positive!
+    // Vertical padding on the main content area
+    --main-content-y-padding: 1.6rem; // Must be positive!
+}
+
+._laravel-admin .main-navigation {
+    // Styles for nav titles
+    --title-font-size: 0.65rem;
+    --title-font-weight: 500;
+    --title-color: #BFBFBF;
+    --title-letter-spacing: 0.5px;
+    --title-padding-top: 0;
+    --title-padding-right: 0;
+    --title-padding-bottom: 0;
+    --title-padding-left: 1.25rem;
+    --title-padding: var(--title-padding-top) var(--title-padding-right) var(--title-padding-bottom) var(--title-padding-left);
+    --title-line-height: 1;
+    --title-margin-top: 0.75rem;
+    --title-margin-right: 0;
+    --title-margin-bottom: 0.75rem;
+    --title-margin-left: 0;
+    --title-margin: var(--title-margin-top) var(--title-margin-right) var(--title-margin-bottom) var(--title-margin-left);
+    --title-text-transform: uppercase;
+
+
+    // Nav link styles
+    --link-font-size: 0.9rem;
+    --link-top-padding: 0.4rem;
+    --link-right-padding: 1rem;
+    --link-bottom-padding: 0.4rem;
+    --link-left-padding: 1.25rem;
+    --link-padding: var(--link-top-padding) var(--link-right-padding) var(--link-bottom-padding) var(--link-left-padding);
+    --link-transition: 0.2s ease all;
+    --link-color: #58687d;
+    --link-background-color: transparent;
+    --link-border-bottom: 1px solid var(--layout-border-color);
+    --link-child-icon-color: #BBBEC5;
+    --link-hover-background-color: #f5f9fc;
+    --link-hover-color: inherit;
+    --link-hover-text-decoration: none;
+
+    // Nav link icons
+    --link-icon-font-size: 0.8em;
+    --link-icon-margin-right: 0.5rem;
+
+    // Counters
+    --link-counter-background-color: #EFF4FA;
+    --link-counter-color: #97A7B6;
+    --link-counter-size: 1.3rem;
+    --link-counter-line-height: 1.4rem;
+    --link-counter-font-size: calc(var(--link-counter-size) / 2);
+    --link-counter-border-radius: 0.2rem;
+    --link-counter-transition: 0.2s ease all;
+    --link-counter-padding: 0 0.25rem;
+    --link-hover-counter-background-color: white;
+
+    // Subnav Link Styles
+    --subnav-indent: 0.6em;
+    --subnav-link-font-size: 0.8rem;
+    --subnav-link-border: none;
+    --subnav-link-padding-top: calc(var(--link-top-padding) / 2);
+    --subnav-link-padding-bottom: calc(var(--link-bottom-padding) / 2);
+
+    --subnav-link-hover-text-decoration: underline;
+}
+
+// Style Overrides for small screens (mobiles)
+@media screen and (max-width: $breakpoint-xs)
+{
+    :root {
+        // Box shadow added to the header (set to 'none' to remove shadow)
+        --header-box-shadow: 2px 0 12px 3px var(--layout-border-color);
+
+
+        // Right Border of the brand panel (used to separate from the header, set to 'none' if not used)
+        --brand-panel-right-border: none;
+
+
+        // Horizontal padding on the main content area
+        --main-content-x-padding: 1rem; // Must be positive!
+        // Vertical padding on the main content area
+        --main-content-y-padding: 1rem; // Must be positive!
+    }
+}
