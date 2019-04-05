@@ -46,7 +46,7 @@ $breakpoint-xs: 768px;
     --sidebar-top-border: 1px solid var(--layout-border-color);
     // Box shadow on the sidebar
     --sidebar-box-shadow: none;
-    
+
     // Used as an inset border for the main content area
     --main-content-box-shadow: inset 2px 0 12px 3px var(--layout-border-color);
     // Horizontal padding on the main content area
@@ -73,7 +73,6 @@ $breakpoint-xs: 768px;
     --title-margin-left: 0;
     --title-margin: var(--title-margin-top) var(--title-margin-right) var(--title-margin-bottom) var(--title-margin-left);
     --title-text-transform: uppercase;
-
 
     // Nav link styles
     --link-font-size: 0.9rem;
@@ -216,14 +215,11 @@ $breakpoint-xs: 768px;
         // Z-index of the header section
         --header-z-index: 4000;
 
-
         // Right Border of the brand panel (used to separate from the header, set to 'none' if not used)
         --brand-panel-right-border: none;
 
-
         // Box shadow on the sidebar
         --sidebar-box-shadow: 4px 0px 10px 0px rgba(0, 0, 0, 0.2);
-
 
         // Horizontal padding on the main content area
         --main-content-x-padding: 1rem; // Must be positive!
