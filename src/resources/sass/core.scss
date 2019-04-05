@@ -59,7 +59,7 @@ html, body {
         display: flex;
         align-items: center;
         width: 100%;
-        z-index: 2000;
+        z-index: var(--header-z-index);
         height: var(--header-height);
         background: var(--header-background);
         box-shadow: var(--header-box-shadow);
@@ -137,6 +137,7 @@ html, body {
         width: var(--sidebar-width);
         background: var(--sidebar-background);
         border-top: var(--sidebar-top-border);
+        box-shadow: var(--sidebar-box-shadow)
     }
 
     .main-content {
@@ -354,8 +355,8 @@ html, body {
             @include clearAppearance;
             height: var(--header-height);
             width: var(--header-height);
+            color: var(--icon-color);
             cursor: pointer;
-            color: var(--main-nav-text-color);
             transition: 0.2s ease all;
 
             &:focus {
@@ -380,26 +381,27 @@ html, body {
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 
             .title, .footer {
-                font-size: 0.75rem;
                 border-bottom: 1px solid var(--layout-border-color);
                 border-top: 1px solid var(--layout-border-color);
                 text-align: center;
             }
 
             .title {
-                background: var(--main-nav-hover-bg);
-                text-transform: uppercase;
-                font-weight: bold;
-                padding: 0.6rem 0.5rem;
+                font-size: var(--title-font-size);
+                background: var(--title-background);
+                text-transform: var(--title-text-transform);
+                font-weight: var(--title-font-weight);
+                padding: var(--title-padding);
             }
 
             .footer {
-                background: rgba(0, 0, 0, 0.05);
+                font-size: var(--footer-font-size);
+                background: var(--footer-background-color);
 
                 a {
                     display: block;
-                    padding: 0.6rem 0.5rem;
-                    color: #333;
+                    padding: var(--footer-padding);
+                    color: var(--footer-color);
                 }
             }
 
@@ -416,9 +418,9 @@ html, body {
                         a, div {
                             display: block;
                             border-bottom: 1px solid var(--layout-border-color);
-                            font-size: 0.8rem;
-                            padding: 0.5rem 1rem;
-                            color: #909090;
+                            font-size: var(--body-link-font-size);
+                            padding: var(--body-link-padding);
+                            color: var(--body-link-color);
                         }
 
                         &:last-child a {
@@ -450,12 +452,12 @@ html, body {
 .page-header {
     position: relative;
     background: #f6faff;
-    padding: 1rem 2rem;
+    padding: var(--padding);
 
     &::after {
         position: absolute;
         content: '';
-        background: red;
+        background: transparent;
         height: 100%;
         width: 2rem;
         top: -5px;
@@ -465,7 +467,7 @@ html, body {
 
     h1 {
         margin: 0;
-        font-size: 1.4rem;
+        font-size: var(--heading-font-size);
     }
 
     .breadcrumbs {
@@ -478,18 +480,28 @@ html, body {
 
             a {
                 position: relative;
-                font-size: 0.7rem;
-                margin-right: 0.75rem;
-                color: #444444;
+                font-size: var(--breadcrumbs-font-size);
+                margin-right: calc(var(--breadcrumbs-spacing) / 2);
+                margin-left: calc(var(--breadcrumbs-spacing) / 2);
+                color: var(--breadcrumbs-color);
+                transition: var(--breadcrumbs-transition);
 
                 &::after {
-                    content: '-';
+                    content: var(--breadcrumbs-divider);
                     position: absolute;
                     top: 50%;
-                    right: -0.6rem;
+                    left: calc(100% + calc(var(--breadcrumbs-spacing) / 2));
                     transform: translateY(-50%);
                 }
+
+                &:hover {
+                    color: var(--breadcrumbs-hover-color);
+                    text-decoration: var(--breadcrumbs-hover-text-decoration);
+                }
             }
+
+            &:first-child > a { margin-left: 0; }
+            &:last-child > a { margin-right: 0; }
 
             &:last-child a::after {
                 display: none;
@@ -505,7 +517,6 @@ html, body {
     }
 
     ._laravel-admin .main-header {
-        z-index: 4000;
 
         div.show-search {
             width: var(--header-height);
@@ -548,7 +559,6 @@ html, body {
     ._laravel-admin .main-sidebar {
         width: calc(100% - var(--header-height));
         left: -100%;
-        box-shadow: 4px 0px 10px 0px rgba(0, 0, 0, 0.2);
         transition: 0.3s ease all;
 
         &.open {

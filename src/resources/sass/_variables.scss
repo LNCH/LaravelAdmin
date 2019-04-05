@@ -7,8 +7,9 @@ $breakpoint-xs: 768px;
 
     // Base background and font colour for the <html> and <body> tags
     --body-background: #eff4fa;
-    --body-color: #53575d;
-
+    --body-color: #53575D;
+    --icon-color: #58687D;
+    --light-grey: #F5F9FC;
 
     // Core Brand colour, used to enhance certain areas of the site in the brands colour
     --brand-color: #e36060;
@@ -22,6 +23,8 @@ $breakpoint-xs: 768px;
     --header-background: white;
     // Box shadow added to the header (set to 'none' to remove shadow)
     --header-box-shadow: 2px 0 8px 1px var(--layout-border-color);
+    // Z-index of the header section
+    --header-z-index: 2000;
 
 
     // Background colour of the brand panel
@@ -45,6 +48,8 @@ $breakpoint-xs: 768px;
     --sidebar-background: white;
     // Top Border of the sidebar (used to separate from the brand panel, set to 'none' if not used)
     --sidebar-top-border: 1px solid var(--layout-border-color);
+    // Box shadow on the sidebar
+    --sidebar-box-shadow: none;
 
 
     // Used as an inset border for the main content area
@@ -83,11 +88,11 @@ $breakpoint-xs: 768px;
     --link-left-padding: 1.25rem;
     --link-padding: var(--link-top-padding) var(--link-right-padding) var(--link-bottom-padding) var(--link-left-padding);
     --link-transition: 0.2s ease all;
-    --link-color: #58687d;
+    --link-color: var(--icon-color);
     --link-background-color: transparent;
     --link-border-bottom: 1px solid var(--layout-border-color);
     --link-child-icon-color: #BBBEC5;
-    --link-hover-background-color: #f5f9fc;
+    --link-hover-background-color: var(--light-grey);
     --link-hover-color: inherit;
     --link-hover-text-decoration: none;
 
@@ -116,16 +121,54 @@ $breakpoint-xs: 768px;
     --subnav-link-hover-text-decoration: underline;
 }
 
+._laravel-admin .notifications-area .notifications-dropdown {
+    --title-background: var(--light-grey);
+    --title-text-transform: uppercase;
+    --title-font-weight: bold;
+    --title-padding: 0.6rem 0.5rem;
+    --title-font-size: 0.75rem;
+
+    --body-link-font-size: 0.8rem;
+    --body-link-padding: 0.5rem 1rem;
+    --body-link-color: #909090;
+
+    --footer-font-size: var(--title-font-size);
+    --footer-background-color: rgba(0, 0, 0, 0.05);
+    --footer-padding: var(--title-padding);
+    --footer-color: #333333;
+}
+
+.page-header {
+    --padding: 1rem 2rem;
+
+    --heading-font-size: 1.4rem;
+
+    --breadcrumbs-font-size: 0.7rem;
+    --breadcrumbs-spacing: 1rem;
+    --breadcrumbs-color: #444444;
+    --breadcrumbs-divider: '-';
+    --breadcrumbs-transition: 0.2s ease all;
+
+    --breadcrumbs-hover-color: inherit;
+    --breadcrumbs-hover-text-decoration: none;
+}
+
 // Style Overrides for small screens (mobiles)
 @media screen and (max-width: $breakpoint-xs)
 {
     :root {
         // Box shadow added to the header (set to 'none' to remove shadow)
         --header-box-shadow: 2px 0 12px 3px var(--layout-border-color);
+        // Z-index of the header section
+        --header-z-index: 4000;
 
 
         // Right Border of the brand panel (used to separate from the header, set to 'none' if not used)
         --brand-panel-right-border: none;
+
+
+        // Box shadow on the sidebar
+        --sidebar-box-shadow: 4px 0px 10px 0px rgba(0, 0, 0, 0.2);
 
 
         // Horizontal padding on the main content area
