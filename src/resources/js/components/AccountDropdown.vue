@@ -77,57 +77,45 @@
 <style lang="scss">
     @import "../../sass/utilities";
 
-    :root {
-        --account-dropdown-button-fontsize: 0.9rem;
-        --account-dropdown-button-vertical-padding: calc((var(--header-height) - var(--account-dropdown-button-fontsize)) / 2);
-        --account-dropdown-button-horizontal-padding: 1rem;
-        --account-dropdown-menu-width: 11rem;
-        --account-dropdown-left-border: 1px solid #e2e7ef;
-        --account-dropdown-avatar-size: 1.8rem;
-    }
-
     .la_account-dropdown {
         position: relative;
 
         button {
             position: relative;
-            font-size: var(--account-dropdown-button-fontsize);
-            padding: var(--account-dropdown-button-vertical-padding) var(--account-dropdown-button-horizontal-padding);
+            font-size: var(--button-fontsize);
+            padding: var(--button-vertical-padding) var(--button-horizontal-padding);
             &.with-avatar {
-                padding-left: calc((var(--account-dropdown-button-horizontal-padding) * 2) + var(--account-dropdown-avatar-size));
+                padding-left: calc((var(--button-horizontal-padding) * 2) + var(--avatar-size));
             }
-            margin: 0;
-            line-height: 1;
-            -webkit-appearance: none;
-            background: transparent;
+            margin: var(--button-margin);
+            line-height: var(--button-line-height);
+            @include clearAppearance;
             cursor: pointer;
-            border: none;
-            border-left: var(--account-dropdown-left-border);
-            transition: 0.3s ease all;
+            border-left: var(--left-border);
+            transition: var(--button-transition);
             color: var(--body-color);
             @include no-select;
 
             i.fa {
-                font-size: 0.6rem;
-                margin-left: 0.5rem;
+                font-size: var(--dropdown-icon-font-size);
+                margin: var(--dropdown-icon-margin);
                 vertical-align: middle;
-                margin-top: -3px;
-                color: #333;
-                transition: 0.3s ease all;
+                color: var(--dropdown-icon-color);
+                transition: var(--button-transition);
             }
 
             .user-avatar {
                 position: absolute;
                 top: 50%;
-                left: var(--account-dropdown-button-horizontal-padding);
+                left: var(--button-horizontal-padding);
                 transform: translateY(-50%);
-                max-height: var(--account-dropdown-avatar-size);
-                max-width: var(--account-dropdown-avatar-size);
-                width: var(--account-dropdown-avatar-size);
-                height: var(--account-dropdown-avatar-size);
+                max-height: var(--avatar-size);
+                max-width: var(--avatar-size);
+                width: var(--avatar-size);
+                height: var(--avatar-size);
                 background-size: cover;
-                border-radius: 0.3rem;
-                border: 1px solid #dadada;
+                border-radius: var(--avatar-border-radius);
+                border: var(--avatar-border);
             }
         }
 
@@ -137,11 +125,11 @@
             position: absolute;
             top: 100%;
             right: 0;
-            width: var(--account-dropdown-menu-width);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            width: var(--menu-width);
+            box-shadow: var(--dropdown-box-shadow);
 
             ul {
-                padding: 1rem 0;
+                padding: var(--dropdown-padding);
                 margin: 0;
 
                 li {
@@ -150,16 +138,17 @@
                     a, button {
                         display: block;
                         width: 100%;
-                        font-size: 0.9rem;
-                        color: #333;
-                        padding: 0.5rem 1.5rem;
-                        line-height: 1;
-                        text-align: left;
-                        transition: 0.3s ease all;
+                        font-size: var(--dropdown-link-font-size);
+                        color: var(--dropdown-link-color);
+                        padding: var(--dropdown-link-padding);
+                        line-height: var(--dropdown-link-line-height);
+                        text-align: var(--dropdown-link-text-align);
+                        transition: var(--dropdown-link-transition);
+                        border: var(--dropdown-link-border);
 
                         &:hover {
-                            background: rgba(0, 0, 0, 0.05);
-                            text-decoration: none;
+                            background: var(--dropdown-link-hover-background);
+                            text-decoration: var(--dropdown-link-hover-text-decoration);
                         }
                     }
                 }
@@ -183,7 +172,7 @@
         }
 
         button:hover, &.is-active > button {
-            background: var(--main-nav-hover-bg, rgba(0, 0, 0, 0.1));
+            background: var(--button-hover-background);
         }
     }
 
