@@ -16,7 +16,6 @@ $breakpoint-xs: 768px;
     // Default color for structural borders on the site (between page elements, in panels etc.)
     --layout-border-color: #e2e7ef;
 
-
     // Height of the header (affects 'top' position of the sidebar and content areas)
     --header-height: 3rem;
     // Background colour of the header
@@ -25,7 +24,6 @@ $breakpoint-xs: 768px;
     --header-box-shadow: 2px 0 8px 1px var(--layout-border-color);
     // Z-index of the header section
     --header-z-index: 2000;
-
 
     // Background colour of the brand panel
     --brand-panel-background: white;
@@ -37,10 +35,8 @@ $breakpoint-xs: 768px;
     --brand-panel-rb-color: var(--layout-border-color);
     --brand-panel-right-border: none;
 
-
     // Right Border used for mobile menu buttons
     --menu-toggle-right-border: var(--brand-panel-rb-width) var(--brand-panel-rb-type) var(--brand-panel-rb-color);
-
 
     // Width of the sidebar (contains the main navigation)
     --sidebar-width: 13rem;
@@ -50,8 +46,7 @@ $breakpoint-xs: 768px;
     --sidebar-top-border: 1px solid var(--layout-border-color);
     // Box shadow on the sidebar
     --sidebar-box-shadow: none;
-
-
+    
     // Used as an inset border for the main content area
     --main-content-box-shadow: inset 2px 0 12px 3px var(--layout-border-color);
     // Horizontal padding on the main content area
