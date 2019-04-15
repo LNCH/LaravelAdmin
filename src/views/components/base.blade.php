@@ -8,7 +8,9 @@
         @stack("meta")
         <title>@yield("site_title", "Laravel Admin")</title>
         <link rel="stylesheet" href="{{ config("laravel-admin.bootstrap_url", "") }}" />
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+        @if (config("laravel-admin.use_fontawesome", false))
+            <link rel="stylesheet" href="{{ config("laravel-admin.fontawesome_url", "") }}" />
+        @endif
         <link rel="stylesheet" href="{{ asset("vendor/lnch/laravel-admin/css/laravel-admin.core.css") }}" />
         @stack("head_scripts")
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
