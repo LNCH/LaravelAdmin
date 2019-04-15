@@ -716,10 +716,10 @@ html, body {
     & > li > span {
         display: inline-block;
         font-size: 0.9rem;
-        color: var(--medium-grey);
+        color: var(--text-color);
         width: 2rem;
         height: 2rem;
-        border: 1px solid var(--medium-grey);
+        border: 1px solid var(--border-color);
         border-right: none;
         text-align: center;
         line-height: 2rem;
@@ -727,7 +727,7 @@ html, body {
 
     & > li:last-child {
         & > a, & > span {
-            border-right: 1px solid var(--medium-grey);
+            border-right: 1px solid var(--border-color);
         }
     }
 
@@ -742,7 +742,7 @@ html, body {
     & > li:not(.active) > span:hover,
     & > li:not(.active) > a:focus,
     & > li:not(.active) > span:focus {
-        color: var(--brand-color);
+        color: var(--hover-text-color);
         text-decoration: none;
     }
 
@@ -750,15 +750,15 @@ html, body {
         & > a, & > span,
         & > a:hover, & > span:hover,
         & > a:focus, & > span:focus {
-            color: white;
-            background: var(--brand-color);
-            border-color: var(--brand-color);
+            color: var(--active-text-color);
+            background: var(--active-background-color);
+            border-color: var(--active-border-color);
             text-decoration: none;
         }
 
         & + li {
             & > a, & > span {
-                border-left-color: var(--brand-color);
+                border-left-color: var(--active-border-color);
             }
         }
     }

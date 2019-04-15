@@ -275,6 +275,15 @@ ol {
   --action-button-hover-background: rgba(0, 0, 0, 0.05);
 }
 
+.pagination {
+  --border-color: var(--layout-border-color);
+  --text-color: var(--medium-grey);
+  --hover-text-color: var(--brand-color);
+  --active-text-color: white;
+  --active-background-color: var(--brand-color);
+  --active-border-color: var(--brand-color);
+}
+
 @media screen and (max-width: 768px) {
   :root {
     --header-box-shadow: 2px 0 12px 3px var(--layout-border-color);
@@ -1230,10 +1239,10 @@ body {
 .pagination > li > span {
   display: inline-block;
   font-size: 0.9rem;
-  color: var(--medium-grey);
+  color: var(--text-color);
   width: 2rem;
   height: 2rem;
-  border: 1px solid var(--medium-grey);
+  border: 1px solid var(--border-color);
   border-right: none;
   text-align: center;
   line-height: 2rem;
@@ -1241,7 +1250,7 @@ body {
 
 .pagination > li:last-child > a,
 .pagination > li:last-child > span {
-  border-right: 1px solid var(--medium-grey);
+  border-right: 1px solid var(--border-color);
 }
 
 .pagination > li:first-child > a,
@@ -1255,7 +1264,7 @@ body {
 .pagination > li:not(.active) > span:hover,
 .pagination > li:not(.active) > a:focus,
 .pagination > li:not(.active) > span:focus {
-  color: var(--brand-color);
+  color: var(--hover-text-color);
   text-decoration: none;
 }
 
@@ -1265,15 +1274,15 @@ body {
 .pagination > .active > span:hover,
 .pagination > .active > a:focus,
 .pagination > .active > span:focus {
-  color: white;
-  background: var(--brand-color);
-  border-color: var(--brand-color);
+  color: var(--active-text-color);
+  background: var(--active-background-color);
+  border-color: var(--active-border-color);
   text-decoration: none;
 }
 
 .pagination > .active + li > a,
 .pagination > .active + li > span {
-  border-left-color: var(--brand-color);
+  border-left-color: var(--active-border-color);
 }
 
 .pagination .disabled {

@@ -211,6 +211,17 @@ $breakpoint-xs: 768px;
     --action-button-hover-background: rgba(0, 0, 0, 0.05);
 }
 
+.pagination {
+    --border-color: var(--layout-border-color);
+    --text-color: var(--medium-grey);
+
+    --hover-text-color: var(--brand-color);
+
+    --active-text-color: white;
+    --active-background-color: var(--brand-color);
+    --active-border-color: var(--brand-color);
+}
+
 // Style Overrides for small screens (mobiles)
 @media screen and (max-width: $breakpoint-xs)
 {
