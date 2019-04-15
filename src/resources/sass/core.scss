@@ -450,9 +450,19 @@ html, body {
 }
 
 .page-header {
+    display: flex;
+    align-items: center;
     position: relative;
     background: #f6faff;
     padding: var(--padding);
+
+    .left, .right {
+        flex: 1 0 auto;
+    }
+
+    .right {
+        text-align: right;
+    }
 
     &::after {
         position: absolute;
@@ -506,6 +516,99 @@ html, body {
             &:last-child a::after {
                 display: none;
             }
+        }
+    }
+}
+
+// Content Panel
+._laravel-admin .content-panel {
+    background: var(--background);
+    font-size: var(--font-size);
+    box-shadow: var(--box-shadow);
+
+    .body {
+        padding: 0 var(--body-x-padding);
+        max-height: 0px;
+        overflow: hidden;
+        transition: var(--body-transition);
+
+        &.is-open {
+            padding: var(--body-y-padding) var(--body-x-padding);
+            max-height: none;
+            overflow: auto;
+        }
+
+        .full-width {
+            margin-left: calc(var(--body-x-padding) * -1);
+            width: calc(100% + (var(--body-x-padding) * 2));
+            border-left: none;
+            border-right: none;
+
+            tr {
+                td:first-child, th:first-child {
+                    padding-left: var(--body-x-padding);
+                    border-left: none;
+                }
+                td:last-child, th:last-child {
+                    padding-right: var(--body-x-padding);
+                    border-right: none;
+                }
+
+                td.actions {
+                    text-align: center;
+                    padding-left: 0.25rem;
+                    padding-right: 0.25rem;
+
+                    a {
+                        color: grey;
+                        padding: 0 0.5rem;
+                        font-size: 0.9rem;
+
+                        &:hover {
+                            color: var(--blue);
+                        }
+
+                        &.danger:hover {
+                            color: var(--red);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .header {
+        display: flex;
+        border-bottom: var(--header-bottom-border);
+        @include no-select;
+
+        .title {
+            flex: 1 1 auto;
+            padding: var(--heading-y-padding) var(--heading-x-padding);
+            font-size: var(--heading-font-size);
+            line-height: var(--heading-line-height);
+            text-transform: var(--heading-text-transform);
+            font-weight: var(--heading-font-weight);
+            letter-spacing: var(--heading-letter-spacing);
+        }
+    }
+
+    button.action {
+        height: 100%;
+        width: calc((var(--heading-font-size) * var(--heading-line-height)) + (var(--heading-y-padding) * 2));
+        @include clearAppearance;
+        font-size: var(--action-button-font-size);
+        font-weight: var(--action-button-font-weight);
+        border-left: var(--action-button-divider-border);
+        cursor: pointer;
+        transition: var(--action-button-transition);
+
+        &:focus {
+            outline: none;
+        }
+
+        &:hover {
+            background: var(--action-button-hover-background);
         }
     }
 }
@@ -585,5 +688,14 @@ html, body {
 
     ._laravel-admin .main-navigation .mobile-account-menu {
         display: block;
+    }
+}
+
+// Buttons
+.btn {
+
+    .fa {
+        font-size: 0.9em;
+        margin-right: 0.25rem;
     }
 }

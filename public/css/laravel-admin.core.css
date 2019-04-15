@@ -116,6 +116,8 @@ ol {
 }
 
 :root {
+  --blue: #446fd4;
+  --red: #e36060;
   --text-select-background: var(--brand-color, blue);
   --text-select-color: white;
   --body-background: #eff4fa;
@@ -925,9 +927,26 @@ body {
 }
 
 .page-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   position: relative;
   background: #f6faff;
   padding: var(--padding);
+}
+
+.page-header .left,
+.page-header .right {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+}
+
+.page-header .right {
+  text-align: right;
 }
 
 .page-header::after {
@@ -992,6 +1011,121 @@ body {
 
 .page-header .breadcrumbs li:last-child a::after {
   display: none;
+}
+
+._laravel-admin .content-panel {
+  background: var(--background);
+  font-size: var(--font-size);
+  -webkit-box-shadow: var(--box-shadow);
+          box-shadow: var(--box-shadow);
+}
+
+._laravel-admin .content-panel .body {
+  padding: 0 var(--body-x-padding);
+  max-height: 0px;
+  overflow: hidden;
+  -webkit-transition: var(--body-transition);
+  transition: var(--body-transition);
+}
+
+._laravel-admin .content-panel .body.is-open {
+  padding: var(--body-y-padding) var(--body-x-padding);
+  max-height: none;
+  overflow: auto;
+}
+
+._laravel-admin .content-panel .body .full-width {
+  margin-left: calc(var(--body-x-padding) * -1);
+  width: calc(100% + (var(--body-x-padding) * 2));
+  border-left: none;
+  border-right: none;
+}
+
+._laravel-admin .content-panel .body .full-width tr td:first-child,
+._laravel-admin .content-panel .body .full-width tr th:first-child {
+  padding-left: var(--body-x-padding);
+  border-left: none;
+}
+
+._laravel-admin .content-panel .body .full-width tr td:last-child,
+._laravel-admin .content-panel .body .full-width tr th:last-child {
+  padding-right: var(--body-x-padding);
+  border-right: none;
+}
+
+._laravel-admin .content-panel .body .full-width tr td.actions {
+  text-align: center;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+
+._laravel-admin .content-panel .body .full-width tr td.actions a {
+  color: grey;
+  padding: 0 0.5rem;
+  font-size: 0.9rem;
+}
+
+._laravel-admin .content-panel .body .full-width tr td.actions a:hover {
+  color: var(--blue);
+}
+
+._laravel-admin .content-panel .body .full-width tr td.actions a.danger:hover {
+  color: var(--red);
+}
+
+._laravel-admin .content-panel .header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-bottom: var(--header-bottom-border);
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                              supported by Chrome and Opera */
+}
+
+._laravel-admin .content-panel .header .title {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  padding: var(--heading-y-padding) var(--heading-x-padding);
+  font-size: var(--heading-font-size);
+  line-height: var(--heading-line-height);
+  text-transform: var(--heading-text-transform);
+  font-weight: var(--heading-font-weight);
+  letter-spacing: var(--heading-letter-spacing);
+}
+
+._laravel-admin .content-panel button.action {
+  height: 100%;
+  width: calc((var(--heading-font-size) * var(--heading-line-height)) + (var(--heading-y-padding) * 2));
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  background: transparent;
+  font-size: var(--action-button-font-size);
+  font-weight: var(--action-button-font-weight);
+  border-left: var(--action-button-divider-border);
+  cursor: pointer;
+  -webkit-transition: var(--action-button-transition);
+  transition: var(--action-button-transition);
+}
+
+._laravel-admin .content-panel button.action:focus {
+  outline: none;
+}
+
+._laravel-admin .content-panel button.action:hover {
+  background: var(--action-button-hover-background);
 }
 
 @media screen and (max-width: 768px) {
@@ -1073,5 +1207,10 @@ body {
   ._laravel-admin .main-navigation .mobile-account-menu {
     display: block;
   }
+}
+
+.btn .fa {
+  font-size: 0.9em;
+  margin-right: 0.25rem;
 }
 

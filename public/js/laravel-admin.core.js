@@ -12766,10 +12766,6 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(26)
-}
 var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = __webpack_require__(28)
@@ -12778,7 +12774,7 @@ var __vue_template__ = __webpack_require__(29)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = injectStyle
+var __vue_styles__ = null
 /* scopeId */
 var __vue_scopeId__ = null
 /* moduleIdentifier (server only) */
@@ -12813,46 +12809,8 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 26 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(27);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(3)("cae24ffe", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../../../../node_modules/css-loader/index.js!../../../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-466a121b\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../../../node_modules/sass-loader/lib/loader.js!../../../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ContentPanel.vue", function() {
-     var newContent = require("!!../../../../../../../node_modules/css-loader/index.js!../../../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-466a121b\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../../../node_modules/sass-loader/lib/loader.js!../../../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ContentPanel.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 27 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(2)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n._laravel-admin .content-panel {\n  background: var(--background);\n  font-size: var(--font-size);\n  -webkit-box-shadow: var(--box-shadow);\n          box-shadow: var(--box-shadow);\n}\n._laravel-admin .content-panel .body {\n    padding: 0 var(--body-x-padding);\n    max-height: 0px;\n    overflow: hidden;\n    -webkit-transition: var(--body-transition);\n    transition: var(--body-transition);\n}\n._laravel-admin .content-panel .body.is-open {\n      padding: var(--body-y-padding) var(--body-x-padding);\n      max-height: none;\n      overflow: auto;\n}\n._laravel-admin .content-panel .body .full-width {\n      margin-left: calc(var(--body-x-padding) * -1);\n      width: calc(100% + (var(--body-x-padding) * 2));\n      border-left: none;\n      border-right: none;\n}\n._laravel-admin .content-panel .body .full-width tr td:first-child, ._laravel-admin .content-panel .body .full-width tr th:first-child {\n        padding-left: var(--body-x-padding);\n        border-left: none;\n}\n._laravel-admin .content-panel .body .full-width tr td:last-child, ._laravel-admin .content-panel .body .full-width tr th:last-child {\n        padding-right: var(--body-x-padding);\n        border-right: none;\n}\n._laravel-admin .content-panel .header {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    border-bottom: var(--header-bottom-border);\n    -webkit-touch-callout: none;\n    /* iOS Safari */\n    -webkit-user-select: none;\n    /* Safari */\n    /* Konqueror HTML */\n    -moz-user-select: none;\n    /* Firefox */\n    -ms-user-select: none;\n    /* Internet Explorer/Edge */\n    user-select: none;\n    /* Non-prefixed version, currently\n                              supported by Chrome and Opera */\n}\n._laravel-admin .content-panel .header .title {\n      -webkit-box-flex: 1;\n          -ms-flex: 1 1 auto;\n              flex: 1 1 auto;\n      padding: var(--heading-y-padding) var(--heading-x-padding);\n      font-size: var(--heading-font-size);\n      line-height: var(--heading-line-height);\n      text-transform: var(--heading-text-transform);\n      font-weight: var(--heading-font-weight);\n      letter-spacing: var(--heading-letter-spacing);\n}\n._laravel-admin .content-panel button.action {\n    height: 100%;\n    width: calc((var(--heading-font-size) * var(--heading-line-height)) + (var(--heading-y-padding) * 2));\n    -webkit-appearance: none;\n    -moz-appearance: none;\n    appearance: none;\n    border: none;\n    background: transparent;\n    font-size: var(--action-button-font-size);\n    font-weight: var(--action-button-font-weight);\n    border-left: var(--action-button-divider-border);\n    cursor: pointer;\n    -webkit-transition: var(--action-button-transition);\n    transition: var(--action-button-transition);\n}\n._laravel-admin .content-panel button.action:focus {\n      outline: none;\n}\n._laravel-admin .content-panel button.action:hover {\n      background: var(--action-button-hover-background);\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
+/* 26 */,
+/* 27 */,
 /* 28 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 

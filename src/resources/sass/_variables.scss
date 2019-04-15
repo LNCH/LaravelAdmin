@@ -1,6 +1,10 @@
 $breakpoint-xs: 768px;
 
 :root {
+    // Colours
+    --blue: #446fd4;
+    --red: #e36060;
+
     // Background and colour of user selections
     --text-select-background: var(--brand-color, blue);
     --text-select-color: white;

@@ -13,9 +13,11 @@
         </div> <!-- End .left -->
 
         <div class="right">
-
+            <button type="button" class="btn btn-success btn-sm">New Record</button>
+            <a href="#" class="btn btn-primary btn-sm">
+                <i class="fa fa-refresh"></i> Sync
+            </a>
         </div> <!-- End .right -->
-        {{-- Breadcrumbs, description, action buttons --}}
     </div> <!-- End .page-header -->
 @endsection
 
@@ -29,32 +31,75 @@
                 <div class="table-responsive full-width">
                     <table class="table table-striped table-sm table-bordered">
                         <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Age</th>
-                            <th>Position</th>
-                            <th>Grade</th>
-                        </tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Age</th>
+                                <th>Position</th>
+                                <th>Grade</th>
+                                <th>Actions</th>
+                            </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>Tom Lynch</td>
-                            <td>29</td>
-                            <td>Assistant Instructor</td>
-                            <td>1st Degree</td>
-                        </tr>
-                        <tr>
-                            <td>Tom Lynch</td>
-                            <td>29</td>
-                            <td>Assistant Instructor</td>
-                            <td>1st Degree</td>
-                        </tr>
-                        <tr>
-                            <td>Tom Lynch</td>
-                            <td>29</td>
-                            <td>Assistant Instructor</td>
-                            <td>1st Degree</td>
-                        </tr>
+                            <tr>
+                                <td>Tom Lynch</td>
+                                <td>29</td>
+                                <td>Assistant Instructor</td>
+                                <td>1st Degree</td>
+                                <td class="actions">
+                                    <a href="#" title="View Record">
+                                        <span class="sr-only">View</span>
+                                        <i class="fa fa-eye"></i>
+                                    </a>
+                                    <a href="#" title="Edit Record">
+                                        <span class="sr-only">Edit</span>
+                                        <i class="fa fa-pencil"></i>
+                                    </a>
+                                    <a href="#" class="danger" title="Delete Record">
+                                        <span class="sr-only">Delete</span>
+                                        <i class="fa fa-trash"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Tom Lynch</td>
+                                <td>29</td>
+                                <td>Assistant Instructor</td>
+                                <td>1st Degree</td>
+                                <td class="actions">
+                                    <a href="#" title="View Record">
+                                        <span class="sr-only">View</span>
+                                        <i class="fa fa-eye"></i>
+                                    </a>
+                                    <a href="#" title="Edit Record">
+                                        <span class="sr-only">Edit</span>
+                                        <i class="fa fa-pencil"></i>
+                                    </a>
+                                    <a href="#" class="danger" title="Delete Record">
+                                        <span class="sr-only">Delete</span>
+                                        <i class="fa fa-trash"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Tom Lynch</td>
+                                <td>29</td>
+                                <td>Assistant Instructor</td>
+                                <td>1st Degree</td>
+                                <td class="actions">
+                                    <a href="#" title="View Record">
+                                        <span class="sr-only">View</span>
+                                        <i class="fa fa-eye"></i>
+                                    </a>
+                                    <a href="#" title="Edit Record">
+                                        <span class="sr-only">Edit</span>
+                                        <i class="fa fa-pencil"></i>
+                                    </a>
+                                    <a href="#" class="danger" title="Delete Record">
+                                        <span class="sr-only">Delete</span>
+                                        <i class="fa fa-trash"></i>
+                                    </a>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -63,12 +108,6 @@
             </content-panel>
         </div>
         <div class="col-lg-5">
-            <content-panel>
-                Right content goes here
-            </content-panel>
-            <content-panel>
-                Right content goes here
-            </content-panel>
             <content-panel>
                 Right content goes here
             </content-panel>
