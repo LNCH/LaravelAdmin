@@ -1,4 +1,4 @@
-@extends("laravel-admin::components.base")
+@extends("laravel-admin::components._base")
 
 @section("base_content")
     <div id="laravel-admin_app" class="page-wrapper _laravel-admin">
