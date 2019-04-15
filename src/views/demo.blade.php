@@ -104,7 +104,20 @@
                     </table>
                 </div>
 
-                <p>Left content goes here</p>
+                <div class="text-center">
+                    <ul class="pagination">
+                        <li><a href="#">«</a></li>
+                        <li><a href="#">1</a></li>
+                        <li class="active"><a href="#">2</a></li>
+                        <li class=""><a href="#">3</a></li>
+                        <li class=""><a href="#">4</a></li>
+                        <li class=""><a href="#">5</a></li>
+                        <li class="disabled"><a href="#">…</a></li>
+                        <li><a href="#">13</a></li>
+                        <li><a href="#">»</a></li>
+                    </ul>
+                </div>
+
             </content-panel>
         </div>
         <div class="col-lg-5">
