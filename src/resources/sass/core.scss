@@ -16,6 +16,9 @@ $base-font-size: 106.25;
     --heading-font: #{$heading-font-family};
 }
 
+a {
+    color: var(--link-color);
+}
 
 // ================ Utility Styles ================
 .transitions-off {
