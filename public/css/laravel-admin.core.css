@@ -118,6 +118,7 @@ ol {
 :root {
   --blue: #446fd4;
   --red: #e36060;
+  --link-color: #3a85d6;
   --text-select-background: var(--brand-color, blue);
   --text-select-color: white;
   --default-font-size: 1rem;
@@ -299,6 +300,10 @@ ol {
 :root {
   --body-font: Roboto Condensed, sans-serif;
   --heading-font: Roboto Condensed, sans-serif;
+}
+
+a {
+  color: var(--link-color);
 }
 
 .transitions-off {
