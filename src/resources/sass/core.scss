@@ -458,6 +458,10 @@ table.table {
             display: inline;
         }
 
+        button {
+            @include clearAppearance;
+        }
+
         a, button {
             color: grey;
             padding: 0 0.5rem;

@@ -948,6 +948,14 @@ table.table td.actions form {
   display: inline;
 }
 
+table.table td.actions button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  background: transparent;
+}
+
 table.table td.actions a,
 table.table td.actions button {
   color: grey;
