@@ -121,6 +121,82 @@
                 </div>
             @endcomponent
 
+            <div class="table-responsive full-width">
+                    <table class="table table-striped table-sm table-bordered">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Age</th>
+                            <th>Position</th>
+                            <th>Grade</th>
+                            <th>Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Tom Lynch</td>
+                            <td>29</td>
+                            <td>Assistant Instructor</td>
+                            <td>1st Degree</td>
+                            <td class="actions">
+                                <a href="#" title="View Record">
+                                    <span class="sr-only">View</span>
+                                    <i class="fa fa-eye"></i>
+                                </a>
+                                <a href="#" title="Edit Record">
+                                    <span class="sr-only">Edit</span>
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+                                <a href="#" class="danger" title="Delete Record">
+                                    <span class="sr-only">Delete</span>
+                                    <i class="fa fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Tom Lynch</td>
+                            <td>29</td>
+                            <td>Assistant Instructor</td>
+                            <td>1st Degree</td>
+                            <td class="actions">
+                                <a href="#" title="View Record">
+                                    <span class="sr-only">View</span>
+                                    <i class="fa fa-eye"></i>
+                                </a>
+                                <a href="#" title="Edit Record">
+                                    <span class="sr-only">Edit</span>
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+                                <a href="#" class="danger" title="Delete Record">
+                                    <span class="sr-only">Delete</span>
+                                    <i class="fa fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Tom Lynch</td>
+                            <td>29</td>
+                            <td>Assistant Instructor</td>
+                            <td>1st Degree</td>
+                            <td class="actions">
+                                <a href="#" title="View Record">
+                                    <span class="sr-only">View</span>
+                                    <i class="fa fa-eye"></i>
+                                </a>
+                                <a href="#" title="Edit Record">
+                                    <span class="sr-only">Edit</span>
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+                                <a href="#" class="danger" title="Delete Record">
+                                    <span class="sr-only">Delete</span>
+                                    <i class="fa fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+        </div>
+
         </div>
         <div class="col-lg-5">
 

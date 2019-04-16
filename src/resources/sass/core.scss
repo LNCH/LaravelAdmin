@@ -441,6 +441,36 @@ html, body {
     @include margin-bottom(1);
 }
 
+// Table styles
+table.table {
+    background: white;
+    font-size: var(--default-font-size);
+
+    td.actions {
+        text-align: center;
+        padding-left: 0.25rem;
+        padding-right: 0.25rem;
+
+        form {
+            display: inline;
+        }
+
+        a, button {
+            color: grey;
+            padding: 0 0.5rem;
+            font-size: 0.9rem;
+
+            &:hover {
+                color: var(--blue);
+            }
+
+            &.danger:hover {
+                color: var(--red);
+            }
+        }
+    }
+}
+
 .table-sm td, .table-sm th {
     padding: .5rem .75rem;
 }
@@ -552,30 +582,6 @@ html, body {
                 td:last-child, th:last-child {
                     padding-right: var(--body-x-padding);
                     border-right: none;
-                }
-
-                td.actions {
-                    text-align: center;
-                    padding-left: 0.25rem;
-                    padding-right: 0.25rem;
-
-                    form {
-                        display: inline;
-                    }
-
-                    a, button {
-                        color: grey;
-                        padding: 0 0.5rem;
-                        font-size: 0.9rem;
-
-                        &:hover {
-                            color: var(--blue);
-                        }
-
-                        &.danger:hover {
-                            color: var(--red);
-                        }
-                    }
                 }
             }
         }

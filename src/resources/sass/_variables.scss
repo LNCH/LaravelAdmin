@@ -9,6 +9,9 @@ $breakpoint-xs: 768px;
     --text-select-background: var(--brand-color, blue);
     --text-select-color: white;
 
+    // Default font size
+    --default-font-size: 1rem;
+
     // Base background and font colour for the <html> and <body> tags
     --body-background: #eff4fa;
     --body-color: #53575D;

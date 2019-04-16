@@ -120,6 +120,7 @@ ol {
   --red: #e36060;
   --text-select-background: var(--brand-color, blue);
   --text-select-color: white;
+  --default-font-size: 1rem;
   --body-background: #eff4fa;
   --body-color: #53575D;
   --icon-color: #58687D;
@@ -927,6 +928,38 @@ body {
   margin-bottom: 1.6rem;
 }
 
+table.table {
+  background: white;
+  font-size: var(--default-font-size);
+}
+
+table.table td.actions {
+  text-align: center;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+
+table.table td.actions form {
+  display: inline;
+}
+
+table.table td.actions a,
+table.table td.actions button {
+  color: grey;
+  padding: 0 0.5rem;
+  font-size: 0.9rem;
+}
+
+table.table td.actions a:hover,
+table.table td.actions button:hover {
+  color: var(--blue);
+}
+
+table.table td.actions a.danger:hover,
+table.table td.actions button.danger:hover {
+  color: var(--red);
+}
+
 .table-sm td,
 .table-sm th {
   padding: .5rem .75rem;
@@ -1061,33 +1094,6 @@ body {
 ._laravel-admin .content-panel .body .full-width tr th:last-child {
   padding-right: var(--body-x-padding);
   border-right: none;
-}
-
-._laravel-admin .content-panel .body .full-width tr td.actions {
-  text-align: center;
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
-}
-
-._laravel-admin .content-panel .body .full-width tr td.actions form {
-  display: inline;
-}
-
-._laravel-admin .content-panel .body .full-width tr td.actions a,
-._laravel-admin .content-panel .body .full-width tr td.actions button {
-  color: grey;
-  padding: 0 0.5rem;
-  font-size: 0.9rem;
-}
-
-._laravel-admin .content-panel .body .full-width tr td.actions a:hover,
-._laravel-admin .content-panel .body .full-width tr td.actions button:hover {
-  color: var(--blue);
-}
-
-._laravel-admin .content-panel .body .full-width tr td.actions a.danger:hover,
-._laravel-admin .content-panel .body .full-width tr td.actions button.danger:hover {
-  color: var(--red);
 }
 
 ._laravel-admin .content-panel .body .no-y-padding {
