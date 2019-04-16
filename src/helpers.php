@@ -1,6 +1,6 @@
 <?php
 
-if (!method_exists("checkChildUrl")) {
+if (!function_exists("checkChildUrl")) {
     function checkChildUrl($path, $isRegex = false) {
         if ($path == "" || $path == "/") {
             return false;
@@ -13,7 +13,7 @@ if (!method_exists("checkChildUrl")) {
     }
 }
 
-if (!method_exists("la_isJson")) {
+if (!function_exists("la_isJson")) {
     function la_isJson($string) {
         if (!is_string($string)) return false;
         json_decode($string);
