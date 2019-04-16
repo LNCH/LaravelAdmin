@@ -24,82 +24,84 @@
 @section("main_content")
     <div class="row">
         <div class="col-lg-7">
-            <content-panel :is-collapsible="true">
-                <template slot="header">Registered Users</template>
 
+            @component("laravel-admin::components.content-panel", [
+                'title' => 'Registered Users',
+                'isCollapsible' => true
+            ])
                 <p>Left content goes here</p>
                 <div class="table-responsive full-width">
                     <table class="table table-striped table-sm table-bordered">
                         <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Age</th>
-                                <th>Position</th>
-                                <th>Grade</th>
-                                <th>Actions</th>
-                            </tr>
+                        <tr>
+                            <th>Name</th>
+                            <th>Age</th>
+                            <th>Position</th>
+                            <th>Grade</th>
+                            <th>Actions</th>
+                        </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Tom Lynch</td>
-                                <td>29</td>
-                                <td>Assistant Instructor</td>
-                                <td>1st Degree</td>
-                                <td class="actions">
-                                    <a href="#" title="View Record">
-                                        <span class="sr-only">View</span>
-                                        <i class="fa fa-eye"></i>
-                                    </a>
-                                    <a href="#" title="Edit Record">
-                                        <span class="sr-only">Edit</span>
-                                        <i class="fa fa-pencil"></i>
-                                    </a>
-                                    <a href="#" class="danger" title="Delete Record">
-                                        <span class="sr-only">Delete</span>
-                                        <i class="fa fa-trash"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Tom Lynch</td>
-                                <td>29</td>
-                                <td>Assistant Instructor</td>
-                                <td>1st Degree</td>
-                                <td class="actions">
-                                    <a href="#" title="View Record">
-                                        <span class="sr-only">View</span>
-                                        <i class="fa fa-eye"></i>
-                                    </a>
-                                    <a href="#" title="Edit Record">
-                                        <span class="sr-only">Edit</span>
-                                        <i class="fa fa-pencil"></i>
-                                    </a>
-                                    <a href="#" class="danger" title="Delete Record">
-                                        <span class="sr-only">Delete</span>
-                                        <i class="fa fa-trash"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Tom Lynch</td>
-                                <td>29</td>
-                                <td>Assistant Instructor</td>
-                                <td>1st Degree</td>
-                                <td class="actions">
-                                    <a href="#" title="View Record">
-                                        <span class="sr-only">View</span>
-                                        <i class="fa fa-eye"></i>
-                                    </a>
-                                    <a href="#" title="Edit Record">
-                                        <span class="sr-only">Edit</span>
-                                        <i class="fa fa-pencil"></i>
-                                    </a>
-                                    <a href="#" class="danger" title="Delete Record">
-                                        <span class="sr-only">Delete</span>
-                                        <i class="fa fa-trash"></i>
-                                    </a>
-                                </td>
-                            </tr>
+                        <tr>
+                            <td>Tom Lynch</td>
+                            <td>29</td>
+                            <td>Assistant Instructor</td>
+                            <td>1st Degree</td>
+                            <td class="actions">
+                                <a href="#" title="View Record">
+                                    <span class="sr-only">View</span>
+                                    <i class="fa fa-eye"></i>
+                                </a>
+                                <a href="#" title="Edit Record">
+                                    <span class="sr-only">Edit</span>
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+                                <a href="#" class="danger" title="Delete Record">
+                                    <span class="sr-only">Delete</span>
+                                    <i class="fa fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Tom Lynch</td>
+                            <td>29</td>
+                            <td>Assistant Instructor</td>
+                            <td>1st Degree</td>
+                            <td class="actions">
+                                <a href="#" title="View Record">
+                                    <span class="sr-only">View</span>
+                                    <i class="fa fa-eye"></i>
+                                </a>
+                                <a href="#" title="Edit Record">
+                                    <span class="sr-only">Edit</span>
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+                                <a href="#" class="danger" title="Delete Record">
+                                    <span class="sr-only">Delete</span>
+                                    <i class="fa fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Tom Lynch</td>
+                            <td>29</td>
+                            <td>Assistant Instructor</td>
+                            <td>1st Degree</td>
+                            <td class="actions">
+                                <a href="#" title="View Record">
+                                    <span class="sr-only">View</span>
+                                    <i class="fa fa-eye"></i>
+                                </a>
+                                <a href="#" title="Edit Record">
+                                    <span class="sr-only">Edit</span>
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+                                <a href="#" class="danger" title="Delete Record">
+                                    <span class="sr-only">Delete</span>
+                                    <i class="fa fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
                         </tbody>
                     </table>
                 </div>
@@ -117,13 +119,15 @@
                         <li><a href="#">»</a></li>
                     </ul>
                 </div>
+            @endcomponent
 
-            </content-panel>
         </div>
         <div class="col-lg-5">
-            <content-panel>
+
+            @component("laravel-admin::components.content-panel")
                 Right content goes here
-            </content-panel>
+            @endcomponent
+            
         </div>
     </div>
 
