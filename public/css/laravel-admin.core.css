@@ -1069,18 +1069,35 @@ body {
   padding-right: 0.25rem;
 }
 
-._laravel-admin .content-panel .body .full-width tr td.actions a {
+._laravel-admin .content-panel .body .full-width tr td.actions form {
+  display: inline;
+}
+
+._laravel-admin .content-panel .body .full-width tr td.actions a,
+._laravel-admin .content-panel .body .full-width tr td.actions button {
   color: grey;
   padding: 0 0.5rem;
   font-size: 0.9rem;
 }
 
-._laravel-admin .content-panel .body .full-width tr td.actions a:hover {
+._laravel-admin .content-panel .body .full-width tr td.actions a:hover,
+._laravel-admin .content-panel .body .full-width tr td.actions button:hover {
   color: var(--blue);
 }
 
-._laravel-admin .content-panel .body .full-width tr td.actions a.danger:hover {
+._laravel-admin .content-panel .body .full-width tr td.actions a.danger:hover,
+._laravel-admin .content-panel .body .full-width tr td.actions button.danger:hover {
   color: var(--red);
+}
+
+._laravel-admin .content-panel .body .no-y-padding {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+._laravel-admin .content-panel .body .no-x-padding {
+  padding-left: 0;
+  padding-right: 0;
 }
 
 ._laravel-admin .content-panel .header {

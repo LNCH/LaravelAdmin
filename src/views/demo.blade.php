@@ -127,7 +127,7 @@
             @component("laravel-admin::components.content-panel")
                 Right content goes here
             @endcomponent
-            
+
         </div>
     </div>
 

@@ -559,7 +559,11 @@ html, body {
                     padding-left: 0.25rem;
                     padding-right: 0.25rem;
 
-                    a {
+                    form {
+                        display: inline;
+                    }
+
+                    a, button {
                         color: grey;
                         padding: 0 0.5rem;
                         font-size: 0.9rem;
@@ -574,6 +578,16 @@ html, body {
                     }
                 }
             }
+        }
+
+        .no-y-padding {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        .no-x-padding {
+            padding-left: 0;
+            padding-right: 0;
         }
     }
 
