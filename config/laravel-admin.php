@@ -26,7 +26,8 @@ return [
         [
             "url" => "/",
             "label" => "Dashboard",
-            "icon" => "<i class='fa fa-fw fa-home'></i>"
+            "icon" => "<i class='fa fa-fw fa-home'></i>",
+            "is_home" => true,
         ],
         'products' => [
             "url" => "/products",

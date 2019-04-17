@@ -1,15 +1,22 @@
 <?php
 
 if (!function_exists("checkChildUrl")) {
-    function checkChildUrl($path, $isRegex = false) {
+    function checkChildUrl($item, $isRegex = false) {
+        $path = $item['url'];
         if ($path == "" || $path == "/") {
             return false;
         }
 
+        $isHome = isset($item['is_home']) && $item['is_home'] == true;
         $currentPath = parse_url(URL::current(), PHP_URL_PATH);
-        return $isRegex
-            ? preg_match($path, $currentPath)
-            : strpos($currentPath, $path) === 0;
+
+        if ($isHome) {
+            return $path == $currentPath;
+        } else {
+            return $isRegex
+                ? preg_match($path, $currentPath)
+                : strpos($currentPath, $path) === 0;
+        }
     }
 }
 

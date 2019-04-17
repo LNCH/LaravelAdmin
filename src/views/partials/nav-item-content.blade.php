@@ -1,6 +1,6 @@
 
 <li class="@if(isset($item['children']) && count($item['children'])) has-children @endif
-    @if(checkChildUrl($item['url'])) active @endif">
+    @if(checkChildUrl($item)) active @endif">
     <a href="{{ isset($item['url']) ? url($item['url']) : "#" }}">
         @if(isset($item['icon']) && !isset($subNav))
             <span class="menu-icon">{!! $item['icon'] !!}</span>
