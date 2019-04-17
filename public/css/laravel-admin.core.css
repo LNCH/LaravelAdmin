@@ -147,6 +147,9 @@ ol {
   --main-content-box-shadow: inset 2px 0 12px 3px var(--layout-border-color);
   --main-content-x-padding: 1.6rem;
   --main-content-y-padding: 1.6rem;
+  --label-font-size: 1rem;
+  --label-margin-bottom: 0.25rem;
+  --input-font-size: 0.9rem;
 }
 
 ._laravel-admin .main-navigation {
@@ -1336,7 +1339,8 @@ table.table td.actions button.danger:hover {
 }
 
 label {
-  margin-bottom: 0.25rem;
+  font-size: var(--label-font-size);
+  margin-bottom: var(--label-margin-bottom);
 }
 
 .form-text {
@@ -1350,7 +1354,7 @@ label + .form-control {
 
 .form-control {
   border-radius: 0;
-  font-size: 0.9rem;
+  font-size: var(--input-font-size);
   height: auto;
 }
 

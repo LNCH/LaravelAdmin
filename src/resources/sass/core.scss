@@ -805,7 +805,8 @@ table.table {
 
 // Bootstrap Form overrides
 label {
-    margin-bottom: 0.25rem;
+    font-size: var(--label-font-size);
+    margin-bottom: var(--label-margin-bottom);
 }
 
 .form-text {
@@ -819,6 +820,6 @@ label + .form-control {
 
 .form-control {
     border-radius: 0;
-    font-size: 0.9rem;
+    font-size: var(--input-font-size);
     height: auto;
 }
