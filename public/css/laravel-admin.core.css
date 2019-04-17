@@ -954,6 +954,7 @@ table.table td.actions button {
   appearance: none;
   border: none;
   background: transparent;
+  cursor: pointer;
 }
 
 table.table td.actions a,

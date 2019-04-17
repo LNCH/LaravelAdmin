@@ -12933,7 +12933,7 @@ var render = function() {
     _c(
       "div",
       { staticClass: "body", class: { "is-open": _vm.isOpen } },
-      [_vm._t("default"), _vm._v(" "), _c("div", { staticClass: "footer" })],
+      [_vm._t("default")],
       2
     )
   ])

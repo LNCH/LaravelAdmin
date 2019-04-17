@@ -460,6 +460,7 @@ table.table {
 
         button {
             @include clearAppearance;
+            cursor: pointer;
         }
 
         a, button {

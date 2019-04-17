@@ -19,10 +19,10 @@
         <div class="body" :class="{ 'is-open': isOpen }">
             <slot></slot>
 
-            <div class="footer">
-                <!-- Pagination -->
-                <!-- Action Buttons -->
-            </div> <!-- End .footer -->
+            <!--<div class="footer">-->
+                <!--&lt;!&ndash; Pagination &ndash;&gt;-->
+                <!--&lt;!&ndash; Action Buttons &ndash;&gt;-->
+            <!--</div> &lt;!&ndash; End .footer &ndash;&gt;-->
         </div> <!-- End .body -->
 
     </div> <!-- End .content-panel -->
