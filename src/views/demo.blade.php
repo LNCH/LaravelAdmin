@@ -201,7 +201,22 @@
         <div class="col-lg-5">
 
             @component("laravel-admin::components.content-panel")
-                Right content goes here
+
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Example label</label>
+                    <small id="passwordHelpBlock" class="form-text text-muted">
+                        Your password must be 8-20 characters long, contain letters and numbers, and must not
+                        contain spaces, special characters, or emoji.
+                    </small>
+                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+                </div>
+
+                <div class="form-group">
+                    <label for="validation">Example label</label>
+                    <input type="text" class="form-control is-invalid" id="validation" placeholder="Example input">
+                    <div class="invalid-feedback">Example invalid feedback text</div>
+                </div>
+
             @endcomponent
 
         </div>

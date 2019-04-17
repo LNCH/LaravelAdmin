@@ -1335,3 +1335,22 @@ table.table td.actions button.danger:hover {
   text-decoration: none;
 }
 
+label {
+  margin-bottom: 0.25rem;
+}
+
+.form-text {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+label + .form-control {
+  margin-top: 0.25rem;
+}
+
+.form-control {
+  border-radius: 0;
+  font-size: 0.9rem;
+  height: auto;
+}
+
