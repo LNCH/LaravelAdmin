@@ -1278,6 +1278,7 @@ table.table td.actions button.danger:hover {
 .pagination > li > a,
 .pagination > li > span {
   display: inline-block;
+  background: white;
   font-size: 0.9rem;
   color: var(--text-color);
   width: 2rem;
