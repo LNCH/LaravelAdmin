@@ -17,8 +17,10 @@ import { eventBus } from './eventBus';
 
 // Initialise Vue
 const app = new Vue({
-    el: '#laravel-admin_app'
+    el: '#laravel-admin_header'
 });
+
+window.laravelAdminVue = app;
 
 // Menu toggles
 $(function() {

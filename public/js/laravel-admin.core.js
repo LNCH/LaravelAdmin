@@ -11526,8 +11526,10 @@ Vue.component("content-panel", __WEBPACK_IMPORTED_MODULE_3__components_ContentPa
 
 // Initialise Vue
 var app = new Vue({
-    el: '#laravel-admin_app'
+    el: '#laravel-admin_header'
 });
+
+window.laravelAdminVue = app;
 
 // Menu toggles
 $(function () {

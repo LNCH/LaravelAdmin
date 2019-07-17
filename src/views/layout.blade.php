@@ -2,7 +2,7 @@
 
 @section("base_content")
     <div id="laravel-admin_app" class="page-wrapper _laravel-admin">
-        <header class="main-header">
+        <header id="laravel-admin_header" class="main-header">
             <button class="menu-toggle">
                 <i class="fa fa-bars open-menu"></i>
                 <i class="fa fa-times close-menu"></i>
@@ -32,13 +32,13 @@
             </div> <!-- End .header-content -->
         </header> <!-- End .main-header -->
 
-        <aside class="main-sidebar">
+        <aside id="laravel-admin_sidebar" class="main-sidebar">
             @stack("sidebar_start")
             @include("laravel-admin::partials.main-navigation", ['title' => 'Menu'])
             @stack("sidebar_end")
         </aside> <!-- End .main-sidebar -->
 
-        <main class="main-content">
+        <main id="laravel-admin_content" class="main-content">
             @yield("main_content_start")
             <div class="inner-content">
                 <div class="container-fluid">
