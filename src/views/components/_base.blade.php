@@ -22,6 +22,7 @@
     <body id="{{ $laravelAdminBodyID }}" class="{{ $laravelAdminBodyClass }}">
         @stack("body_start")
         @yield("base_content")
+        @stack("pre_body_scripts")
         <script src="{{ asset("vendor/lnch/laravel-admin/js/laravel-admin.core.js") }}"></script>
         @if(config("laravel-admin.use_boostrap_cdn", true))
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
